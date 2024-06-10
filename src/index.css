@@ -1,13 +1,26 @@
-body {
+* {
+  list-style-type: none;
+  text-decoration: none;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+  box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: var(--font-family);
+  color: black;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --dark-blue: #002855;
+  --medium-blue: #023e7d;
+  --blue: #0353a4;
+  --light-blue: #0466c8;
+  --dark-grey: #33415c;
+  --medium-grey: #5c677d;
+  --grey: #7d8597;
+  --light-grey: #979dac;
+  --blackish-blue: #001233;
+  --font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+
 }
+

@@ -1,0 +1,97 @@
+.topbar {
+    width: 100%;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.5rem;
+    height: 4rem;
+    position: fixed;
+    top:0;
+    left:0;
+}
+
+.static {
+    position: static;
+}
+
+.whitebar {
+    background-color: white;
+    border-bottom: 1px solid #979dac;
+}
+
+.whitebar > nav ul li a {
+    color: var(--dark-blue);
+}
+
+.whitebar > nav.nav-section ul li a.active {
+    text-decoration: underline solid var(--dark-blue) 2px;
+    text-underline-offset: 7.5px;
+}
+
+.whitebar > nav.nav-section ul li a:hover {
+    text-decoration-color: var(--light-blue);
+    color: var(--light-blue);
+}
+
+.nav-section {
+    width: fit-content;
+}
+
+.nav-section > ul {
+    margin: 0 auto;
+    display: flex; 
+    flex-direction: row;
+    gap: 13px;
+    text-align: center;
+    height: 100%;
+}
+
+.nav-section > ul li a {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    height: 100%;
+    font-weight: 400;
+}
+
+.nav-section > ul li a.active{
+    text-decoration: underline solid white 2px;
+    text-underline-offset: 7.5px;
+}
+
+.nav-section > ul li a:hover{
+    text-decoration-color: var(--medium-grey);
+    color: var(--medium-grey);
+}
+
+.logo-sect a {
+    display: block; 
+    height:fit-content;
+    margin-top: 0.5rem;
+}
+
+.logo-sect a img {
+    width: 150px;
+}
+
+.auth-nav {
+    width: fit-content;
+}
+
+.auth-nav > ul {
+    margin: 0 auto;
+    display: flex; 
+    flex-direction: row;
+    gap: 13px;
+    text-align: center;
+    height: 100%;
+}
+
+.auth-nav > ul li a {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    height: 100%;
+    font-weight: 400;
+}
