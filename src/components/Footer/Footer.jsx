@@ -1,12 +1,12 @@
 import React from 'react';
-import { Box } from '@mantine/core';
+import { Box, Title } from '@mantine/core';
 import './Footer.css';
 
 function Footer() {
   return (
     <footer>
       <Box>
-        <h1>Footer</h1>
+        <Title>Footer</Title>
       </Box>
     </footer>
   );
