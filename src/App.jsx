@@ -1,9 +1,9 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home/Home";
+import { Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
+import AboutUs from "./pages/AboutUs/AboutUs";
 import Faq from "./pages/Faq/Faq";
-import Contacts from "./pages/Contacts/Contacts";
+import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 
@@ -13,7 +13,7 @@ function App() {
 			<Route path="/" element={<Layout />}>
 				<Route index element={<Home />} />
 				<Route path="faq" element={<Faq />} />
-				<Route path="contacts" element={<Contacts />} />
+				<Route path="about-us" element={<AboutUs />} />
 			</Route>
 			<Route path="/login" element={<Login />} />
 			<Route path="/register" element={<Register />} />
