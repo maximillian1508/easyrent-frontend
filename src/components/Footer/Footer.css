@@ -1,5 +1,17 @@
 footer {
     background-color: var(--blackish-blue);
-    height: 10rem;
+    height: fit-content;
     color: #fff;
+}
+
+footer nav > ul > li { 
+    margin: 0.5rem 0;
+}
+
+footer nav > ul > li > a{ 
+    color: #fff;
+}
+
+footer nav > ul > li > a:hover{ 
+    color: var(--grey);
 }

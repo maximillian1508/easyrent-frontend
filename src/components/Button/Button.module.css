@@ -1,0 +1,31 @@
+.root {
+    &[data-variant='er-blue'] {
+      background-color: var(--dark-blue);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border: 0;
+      cursor: pointer;
+    }
+
+    &[data-variant='er-blue']:hover {
+        background-color: var(--dark-blue);
+        color: var(--superlight-grey);
+        border: 0;
+        cursor: pointer;
+      }
+  
+    &[data-variant='er-white'] {
+      background: #fff;
+      color: var(--dark-blue);
+      padding: 0.5rem 1rem;
+      border: 0;
+      cursor: pointer;
+    }
+
+    &[data-variant='er-white']:hover {
+      background: var(--superlight-grey);
+      color: var(--medium-blue);
+      border: 0;
+      cursor: pointer;
+    }
+  }
