@@ -142,7 +142,7 @@ function FeaturedSection() {
 				size="md"
 				radius="xl"
 			>
-				See More
+				See More Listings
 			</Button>
 		</>
 	);

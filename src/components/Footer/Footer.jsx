@@ -34,13 +34,13 @@ function Footer() {
 										<NavLink to="/listing">Listing</NavLink>
 									</li>
 									<li>
-										<NavLink to="#featured">Featured</NavLink>
+										<a href="#featured">Featured</a>
 									</li>
 									<li>
 										<NavLink to="/faq">FAQ</NavLink>
 									</li>
 									<li>
-										<NavLink to="/faq#how-it-works">How it works</NavLink>
+										<a href="/faq#how-it-works">How it works</a>
 									</li>
 								</ul>
 							</nav>
@@ -57,7 +57,7 @@ function Footer() {
 										<NavLink to="/about-us">About us</NavLink>
 									</li>
 									<li>
-										<NavLink to="/about-us#contact">Contact</NavLink>
+										<a href="/about-us#contact">Contact</a>
 									</li>
 									<li>
 										<a
