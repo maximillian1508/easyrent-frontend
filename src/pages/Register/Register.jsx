@@ -1,4 +1,5 @@
 import React from "react";
+import useTitle from "../../hooks/useTitle";
 
 function Register() {
 	useTitle("Register");
