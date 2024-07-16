@@ -77,7 +77,7 @@ function FeaturedSection() {
 			<Title order={2} size="h1">
 				Featured Listings
 			</Title>
-			<p className="home-heading-info">Explore Our Featured Rentals</p>
+			<p className="heading-info">Explore Our Featured Rentals</p>
 			<Carousel
 				slideSize={{ base: "80%", sm: "33.33333%" }}
 				slideGap={"md"}
