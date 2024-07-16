@@ -2,6 +2,7 @@ import { Carousel } from "@mantine/carousel";
 import { Button, Card, Group, Image, Select, Text, Title } from "@mantine/core";
 import React from "react";
 import "./Home.css";
+import useTitle from "../../hooks/useTitle";
 
 function FeaturedSection() {
 	const featuredListing = [
@@ -149,6 +150,8 @@ function FeaturedSection() {
 }
 
 function Home() {
+	useTitle("Home");
+
 	const location = ["Parkhill", "Kuala Lumpur", "Melaka", "Kuala Terengganu"];
 
 	return (

@@ -1,11 +1,13 @@
-import React from 'react';
+import React from "react";
+import useTitle from "../../hooks/useTitle";
 
 function Faq() {
-  return (
-    <main>
-      <h1>FAQ</h1>
-    </main>
-  );
+	useTitle("FAQ");
+	return (
+		<main>
+			<h1>FAQ</h1>
+		</main>
+	);
 }
 
 export default Faq;
