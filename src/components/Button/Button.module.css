@@ -9,9 +9,10 @@
 
     &[data-variant='er-blue']:hover {
         background-color: var(--dark-blue);
-        color: var(--superlight-grey);
+        color: var(--superlight-grey) !important;
         border: 0;
         cursor: pointer;
+        opacity: 95%
       }
   
     &[data-variant='er-white'] {

@@ -1,0 +1,8 @@
+.root {
+    &[data-variant='er-unstyled'] div div input::placeholder {
+        color: #000;
+    }
+    &[data-variant='er-unstyled'] div div svg {
+        color: #000;
+    }
+}
