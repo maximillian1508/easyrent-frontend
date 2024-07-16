@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
+import useTitle from "../../hooks/useTitle";
 
 function Login() {
-  return (
-    <div>Login</div>
-  );
+	useTitle("Login");
+	return <div>Login</div>;
 }
 
 export default Login;
