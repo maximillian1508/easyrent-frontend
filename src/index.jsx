@@ -1,19 +1,29 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import { Button, MantineProvider, createTheme } from "@mantine/core";
+import {
+	Button,
+	MantineProvider,
+	MultiSelect,
+	createTheme,
+} from "@mantine/core";
 import { ModalsProvider } from "@mantine/modals";
 import { Notifications } from "@mantine/notifications";
+import "@mantine/carousel/styles.css";
 // import { Provider as ReduxProvider } from 'react-redux';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import App from "./App";
-import classes from "./components/Button/Button.module.css";
+import buttonClasses from "./components/Button/Button.module.css";
+import inputClasses from "./components/Input/Input.module.css";
 import "@mantine/core/styles.css";
 
 const theme = createTheme({
 	components: {
 		Button: Button.extend({
-			classNames: classes,
+			classNames: buttonClasses,
+		}),
+		MultiSelect: MultiSelect.extend({
+			classNames: inputClasses,
 		}),
 	},
 });

@@ -11,6 +11,7 @@ function Header() {
 
 	useEffect(() => {
 		if (location.pathname === "/") {
+			setLoginVariant("er-white");
 			const handleScroll = () => {
 				if (ref.current) {
 					const scrollTop = window.scrollY;
@@ -33,6 +34,7 @@ function Header() {
 				window.removeEventListener("scroll", handleScroll);
 			};
 		}
+		setLoginVariant("er-blue");
 
 		return () => {};
 	}, [location.pathname]);
