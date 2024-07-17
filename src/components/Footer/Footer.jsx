@@ -1,6 +1,6 @@
 import { Container, Grid, Image, Stack, Text, Title } from "@mantine/core";
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import "./Footer.css";
 
 function Footer() {
@@ -31,16 +31,20 @@ function Footer() {
 							<nav>
 								<ul>
 									<li>
-										<NavLink to="/listing">Listing</NavLink>
+										<HashLink to="/listing#">Listing</HashLink>
 									</li>
 									<li>
-										<a href="#featured">Featured</a>
+										<HashLink to="/#featured" smooth>
+											Featured
+										</HashLink>
 									</li>
 									<li>
-										<NavLink to="/faq">FAQ</NavLink>
+										<HashLink to="/faq#">FAQ</HashLink>
 									</li>
 									<li>
-										<a href="/faq#how-it-works">How it works</a>
+										<HashLink to="/faq#how-it-works" smooth>
+											How it works
+										</HashLink>
 									</li>
 								</ul>
 							</nav>
@@ -54,10 +58,12 @@ function Footer() {
 							<nav>
 								<ul>
 									<li>
-										<NavLink to="/about-us">About us</NavLink>
+										<HashLink to="/about-us#">About us</HashLink>
 									</li>
 									<li>
-										<a href="/about-us#contact">Contact</a>
+										<HashLink to="/about-us#contact" smooth>
+											Contact
+										</HashLink>
 									</li>
 									<li>
 										<a
