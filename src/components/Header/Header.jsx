@@ -41,9 +41,7 @@ function Header() {
 
 	const content = (
 		<header
-			className={
-				location.pathname === "/" ? "topbar" : "topbar whitebar static"
-			}
+			className={location.pathname === "/" ? "topbar" : "topbar whitebar"}
 			ref={ref}
 		>
 			<aside className="logo-sect">
@@ -92,6 +90,11 @@ function Header() {
 			</nav>
 		</header>
 	);
-	return content;
+	return (
+		<>
+			{content}
+			{location.pathname !== "/" && <div className="header-spacer" />}
+		</>
+	);
 }
 export default Header;

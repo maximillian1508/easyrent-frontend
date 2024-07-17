@@ -12,8 +12,8 @@
     z-index:1000;
 }
 
-.static {
-    position: static;
+.header-spacer {
+    height: 4rem;
 }
 
 .whitebar {
