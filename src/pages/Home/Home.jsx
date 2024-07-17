@@ -261,7 +261,7 @@ function Home() {
 						</Title>
 						<p>
 							We partner with responsible landlords who prioritize property
-							upkeep, guaranteeing you'll move into a clean and comfortable
+							upkeep, guaranteeing you&apos;ll move into a clean and comfortable
 							home.
 						</p>
 					</div>

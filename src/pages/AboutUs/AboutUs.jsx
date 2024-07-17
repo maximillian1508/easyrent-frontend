@@ -30,9 +30,9 @@ function AboutUs() {
 					</p>
 					<p>
 						We believe that a great life starts with a great place to stay.
-						That's why we carefully select and maintain our properties, ensuring
-						they meet the highest standards of cleanliness, amenities, and
-						hospitality.
+						That&apos;s why we carefully select and maintain our properties,
+						ensuring they meet the highest standards of cleanliness, amenities,
+						and hospitality.
 					</p>
 				</div>
 				<div>
@@ -88,7 +88,7 @@ function AboutUs() {
 
 						<p style={{ width: "94%", marginLeft: "auto", marginTop: "0" }}>
 							We aim to create unforgettable memories for our tenants, whether
-							it's through unique experiences or thoughtful touches in our
+							it&apos;s through unique experiences or thoughtful touches in our
 							homes.
 						</p>
 					</div>
@@ -178,8 +178,8 @@ function AboutUs() {
 					Get in Touch
 				</Title>
 				<p className="heading-info">
-					Have a question or a concern? Reach out to us and we'll be happy to
-					assist you.
+					Have a question or a concern? Reach out to us and we&apos;ll be happy
+					to assist you.
 				</p>
 				<Grid styles={{ root: { margin: "1rem auto", width: "80%" } }}>
 					<Grid.Col span={4}>
