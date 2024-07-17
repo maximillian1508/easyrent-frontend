@@ -60,7 +60,7 @@ function Faq() {
 							<Text c="dimmed" size="sm">
 								If your application is approved, sign the digital contract using
 								the secure e-signature system. Then, transfer the deposit and
-								first month's rent through the integrated payment platform.
+								first month&apos;s rent through the integrated payment platform.
 							</Text>
 						</Timeline.Item>
 
@@ -74,10 +74,10 @@ function Faq() {
 
 						<Timeline.Item title="Manage your rental necessities with our services">
 							<Text c="dimmed" size="sm">
-								Now that you're settled in, take advantage of our user-friendly
-								tenant portal. Here, you can easily pay rent online, submit
-								maintenance requests 24/7, and access informations related to
-								your tenancy.
+								Now that you&apos;re settled in, take advantage of our
+								user-friendly tenant portal. Here, you can easily pay rent
+								online, submit maintenance requests 24/7, and access
+								informations related to your tenancy.
 							</Text>
 						</Timeline.Item>
 					</Timeline>
@@ -109,8 +109,9 @@ function Faq() {
 						</Accordion.Control>
 						<Accordion.Panel>
 							Yes, you can view the status of your current and past applications
-							in the "My Applications" section of your account dashboard.
-							Statuses include "Submitted, "Approved," and "Declined."
+							in the &quot;My Applications&quot; section of your account
+							dashboard. Statuses include &quot;Submitted&quot;,
+							&quot;Approved&quot;, and &quot;Declined&quot;.
 						</Accordion.Panel>
 					</Accordion.Item>
 					<Accordion.Item key="q2" value="q2">
@@ -118,11 +119,11 @@ function Faq() {
 							How do I pay my rent through the website?
 						</Accordion.Control>
 						<Accordion.Panel>
-							Once your application is approved and you're a tenant, you can pay
-							rent through the "Payments" section of your account. We accept
-							various payment methods including credit/debit cards and bank
-							transfers. You can also set up automatic monthly payments for
-							convenience.
+							Once your application is approved and you&apos;re a tenant, you
+							can pay rent through the &quot;Payments&quot; section of your
+							account. We accept various payment methods including credit/debit
+							cards and bank transfers. You can also set up automatic monthly
+							payments for convenience.
 						</Accordion.Panel>
 					</Accordion.Item>
 					<Accordion.Item key="q3" value="q3">
@@ -130,10 +131,11 @@ function Faq() {
 							What should I do if I have a complaint about my rental?
 						</Accordion.Control>
 						<Accordion.Panel>
-							To submit a complaint, go to the "Support" section of your account
-							and select "Submit a Complaint." Provide details about the issue,
-							and you can even upload photos if necessary. You can track the
-							status of your complaint in the same section.
+							To submit a complaint, go to the &quot;Support&quot; section of
+							your account and select &quot;Submit a Complaint.&quot; Provide
+							details about the issue, and you can even upload photos if
+							necessary. You can track the status of your complaint in the same
+							section.
 						</Accordion.Panel>
 					</Accordion.Item>
 					<Accordion.Item key="q4" value="q4">
@@ -152,11 +154,11 @@ function Faq() {
 							How do I contact property owners or managers?
 						</Accordion.Control>
 						<Accordion.Panel>
-							Once you're logged in, you can view the contact information for
-							property owners on their listing pages. For properties you've
+							Once you&apos;re logged in, you can view the contact information
+							for property owners on their listing pages. For properties you've
 							applied to or are renting, you can communicate directly with the
 							owner or manager through our messaging system in the
-							"Communications" section of your account.
+							&quot;Communications&quot; section of your account.
 						</Accordion.Panel>
 					</Accordion.Item>
 				</Accordion>
