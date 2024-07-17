@@ -1,0 +1,92 @@
+.about-welcome {
+    background-color: var(--blackish-blue);
+    text-align: center;
+    width: 100%;
+    padding: 5rem 0;
+}
+
+.about-welcome > div {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.about-welcome h1{
+    color: #fff;
+    font-size: 4rem
+}
+
+.about-welcome p{
+    color: #fff;
+    font-size: 1.3rem;
+    margin: 1rem 0;
+}
+
+.about-company {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 95%;
+    margin: 3rem auto;
+}
+
+.about-company > div {
+    width: 45%;
+}
+
+div.value-container div.value-title {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 1rem;
+    gap: 5px;
+}
+
+div.value-container > div.value-title p:first-of-type {
+    color: var(--medium-grey);
+    font-weight: 700;
+}
+
+.about-company p {
+    font-size: 1.1rem;
+    color: var(--grey);
+    margin-top: 1rem;
+}
+
+
+.about-team {
+    background-color: var(--superlight-grey);
+    width: 100%;
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.about-team > div {
+    display: flex;
+    margin: 0 auto;
+    width: 90%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly
+}
+
+.about-team > div > div {
+    display: flex;
+    flex-direction: column;
+	align-items: center;
+    width: 30%;
+}
+
+#contact {
+    display: flex;
+    margin: 3rem auto;
+    width: 90%;
+    flex-direction: column;
+    align-items: center;
+}
+
+#contact div.contact-card {
+    display: flex;
+    flex-direction: column;
+	align-items: center;
+}
