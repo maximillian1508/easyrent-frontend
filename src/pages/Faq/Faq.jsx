@@ -155,10 +155,10 @@ function Faq() {
 						</Accordion.Control>
 						<Accordion.Panel>
 							Once you&apos;re logged in, you can view the contact information
-							for property owners on their listing pages. For properties you've
-							applied to or are renting, you can communicate directly with the
-							owner or manager through our messaging system in the
-							&quot;Communications&quot; section of your account.
+							for property owners on their listing pages. For properties
+							you&apos;ve applied to or are renting, you can communicate
+							directly with the owner or manager through our messaging system in
+							the &quot;Communications&quot; section of your account.
 						</Accordion.Panel>
 					</Accordion.Item>
 				</Accordion>
