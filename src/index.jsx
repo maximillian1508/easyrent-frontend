@@ -16,6 +16,7 @@ import App from "./App";
 import buttonClasses from "./components/Button/Button.module.css";
 import inputClasses from "./components/Input/Input.module.css";
 import "@mantine/core/styles.css";
+import "@mantine/notifications/styles.css";
 
 const theme = createTheme({
 	components: {
@@ -32,8 +33,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<React.StrictMode>
 		<MantineProvider theme={theme}>
+			<Notifications position="top-center" />
 			<ModalsProvider>
-				<Notifications />
 				<BrowserRouter>
 					<Routes>
 						<Route path="/*" element={<App />} />
