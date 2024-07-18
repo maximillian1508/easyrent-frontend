@@ -3,7 +3,7 @@ import React from "react";
 import { HashLink } from "react-router-hash-link";
 import "./Footer.css";
 
-function Footer() {
+const Footer = () => {
 	return (
 		<footer>
 			<Container fluid mx="xl" py="xl">
@@ -139,6 +139,6 @@ function Footer() {
 			</Container>
 		</footer>
 	);
-}
+};
 
 export default Footer;

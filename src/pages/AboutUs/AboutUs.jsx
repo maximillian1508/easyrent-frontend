@@ -3,7 +3,7 @@ import "./AboutUs.css";
 import { Avatar, Grid, ThemeIcon, Title } from "@mantine/core";
 import useTitle from "../../hooks/useTitle";
 
-function AboutUs() {
+const AboutUs = () => {
 	useTitle("About Us");
 	return (
 		<main>
@@ -282,6 +282,6 @@ function AboutUs() {
 			</section>
 		</main>
 	);
-}
+};
 
 export default AboutUs;
