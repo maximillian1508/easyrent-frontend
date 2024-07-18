@@ -1,0 +1,8 @@
+.bordered-center-form {
+    width: 50%;
+    margin: 0 auto; 
+    border: solid 1px lightgrey;
+    padding: 2rem;
+    border-radius: 15px; 
+    text-align: left;
+}

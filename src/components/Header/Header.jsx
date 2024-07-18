@@ -2,6 +2,7 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import "./Header.css";
 import { Button } from "@mantine/core";
 import { useEffect, useRef, useState } from "react";
+import { NavHashLink } from "react-router-hash-link";
 
 function Header() {
 	const location = useLocation();
@@ -57,30 +58,30 @@ function Header() {
 			<nav className="nav-section">
 				<ul>
 					<li>
-						<NavLink to="/">Home</NavLink>
+						<NavHashLink to="/#">Home</NavHashLink>
 					</li>
 					<li>
-						<NavLink to="/listing">Listing</NavLink>
+						<NavHashLink to="/listing#">Listing</NavHashLink>
 					</li>
 					<li>
-						<NavLink to="/faq">FAQ</NavLink>
+						<NavHashLink to="/faq#">FAQ</NavHashLink>
 					</li>
 					<li>
-						<NavLink to="/about-us">About Us</NavLink>
+						<NavHashLink to="/about-us#">About Us</NavHashLink>
 					</li>
 				</ul>
 			</nav>
 			<nav className="nav-section">
 				<ul>
 					<li>
-						<NavLink to="/register">Register</NavLink>
+						<NavLink to="/register#">Register</NavLink>
 					</li>
 					<li>
 						<Button
 							variant={loginVariant}
 							styles={{ label: { overflow: "visible" } }}
 							component="a"
-							href="/login"
+							href="/login#"
 							radius="lg"
 						>
 							Login
