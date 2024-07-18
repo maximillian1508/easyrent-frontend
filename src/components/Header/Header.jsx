@@ -4,7 +4,7 @@ import { Button } from "@mantine/core";
 import { useEffect, useRef, useState } from "react";
 import { NavHashLink } from "react-router-hash-link";
 
-function Header() {
+const Header = () => {
 	const location = useLocation();
 	const [iconSrc, setIconSrc] = useState("images/er-horizontal-white.svg");
 	const [loginVariant, setLoginVariant] = useState("er-white");

@@ -3,7 +3,7 @@ import "./Faq.css";
 import React from "react";
 import useTitle from "../../hooks/useTitle";
 
-function Faq() {
+const Faq = () => {
 	useTitle("FAQ");
 	return (
 		<main
@@ -165,6 +165,6 @@ function Faq() {
 			</section>
 		</main>
 	);
-}
+};
 
 export default Faq;

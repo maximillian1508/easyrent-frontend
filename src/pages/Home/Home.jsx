@@ -4,7 +4,7 @@ import React from "react";
 import "./Home.css";
 import useTitle from "../../hooks/useTitle";
 
-function FeaturedSection() {
+const FeaturedSection = () => {
 	const featuredListing = [
 		{
 			propertyName: "Parkhill Residence",
@@ -147,9 +147,9 @@ function FeaturedSection() {
 			</Button>
 		</>
 	);
-}
+};
 
-function Home() {
+const Home = () => {
 	useTitle("Home");
 
 	const location = ["Parkhill", "Kuala Lumpur", "Melaka", "Kuala Terengganu"];
@@ -294,6 +294,6 @@ function Home() {
 			</section>
 		</main>
 	);
-}
+};
 
 export default Home;
