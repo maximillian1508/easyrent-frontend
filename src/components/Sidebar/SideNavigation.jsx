@@ -48,11 +48,50 @@ const adminNav = [
 		),
 	},
 	{
-		label: "Manage Users",
+		label: "Users",
 		href: "/manage-users",
 		leftSection: (
 			<ThemeIcon variant="transparent">
 				<img src="/images/users.svg" style={{ width: "70%" }} alt="users" />
+			</ThemeIcon>
+		),
+	},
+	{
+		label: "Properties",
+		href: "/manage-properties",
+		leftSection: (
+			<ThemeIcon variant="transparent">
+				<img
+					src="/images/property.svg"
+					style={{ width: "70%" }}
+					alt="properties"
+				/>
+			</ThemeIcon>
+		),
+	},
+	{
+		label: "Transactions",
+		href: "/manage-transactions",
+		leftSection: (
+			<ThemeIcon variant="transparent">
+				<img
+					src="/images/transaction.svg"
+					style={{ width: "70%" }}
+					alt="transactions"
+				/>
+			</ThemeIcon>
+		),
+	},
+	{
+		label: "Complaints",
+		href: "/manage-complaints",
+		leftSection: (
+			<ThemeIcon variant="transparent">
+				<img
+					src="/images/complaint.svg"
+					style={{ width: "70%" }}
+					alt="complaints"
+				/>
 			</ThemeIcon>
 		),
 	},

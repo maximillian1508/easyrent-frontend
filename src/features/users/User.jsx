@@ -6,7 +6,7 @@ import EditUser from "./EditUser";
 import { useDeleteUserMutation } from "./usersApiSlice";
 import { useGetUsersQuery } from "./usersApiSlice";
 
-const User = ({ userId }) => {
+const User = ({ userId, rowNumber }) => {
 	const { user } = useGetUsersQuery("usersList", {
 		selectFromResult: ({ data }) => ({
 			user: data?.entities[userId],
@@ -51,6 +51,7 @@ const User = ({ userId }) => {
 					<EditUser id={userId} closeDrawer={drawerClose} />
 				</Drawer>
 				<Table.Tr>
+					<Table.Td>{rowNumber}</Table.Td>
 					<Table.Td>{`${user.firstname} ${user.lastname}`}</Table.Td>
 					<Table.Td>{user.email}</Table.Td>
 					<Table.Td>{user.phone}</Table.Td>
@@ -81,6 +82,13 @@ const User = ({ userId }) => {
 	}
 };
 
-const memoizedUser = memo(User);
+//const memoizedUser = memo(User);
+
+const memoizedUser = memo(User, (prevProps, nextProps) => {
+	return (
+		prevProps.userId === nextProps.userId &&
+		prevProps.rowNumber === nextProps.rowNumber
+	);
+});
 
 export default memoizedUser;
