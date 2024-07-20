@@ -1,4 +1,4 @@
-import { Button, Modal, Table } from "@mantine/core";
+import { Button, Modal, ScrollArea, Table } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import React from "react";
 import User from "./User";
@@ -19,7 +19,7 @@ const ManageUsers = () => {
 		isError,
 		error,
 	} = useGetUsersQuery("usersList", {
-		pollingInterval: 30000,
+		pollingInterval: 60000,
 		refetchOnFocus: true,
 		refetchOnMountOrArgChange: true,
 	});
@@ -55,19 +55,23 @@ const ManageUsers = () => {
 			ids?.length && ids.map((userId) => <User key={userId} userId={userId} />);
 
 		content = (
-			<Table highlightOnHover>
-				<Table.Thead>
-					<Table.Tr>
-						<Table.Th>Name</Table.Th>
-						<Table.Th>Email</Table.Th>
-						<Table.Th>Phone</Table.Th>
-						<Table.Th>User Type</Table.Th>
-						<Table.Th>Status</Table.Th>
-						<Table.Th />
-					</Table.Tr>
-				</Table.Thead>
-				<Table.Tbody>{tableContent}</Table.Tbody>
-			</Table>
+			<div style={{ flex: "1", minHeight: "0" }}>
+				<ScrollArea h="100%" minWidth={900}>
+					<Table highlightOnHover>
+						<Table.Thead>
+							<Table.Tr>
+								<Table.Th>Name</Table.Th>
+								<Table.Th>Email</Table.Th>
+								<Table.Th>Phone</Table.Th>
+								<Table.Th>User Type</Table.Th>
+								<Table.Th>Status</Table.Th>
+								<Table.Th />
+							</Table.Tr>
+						</Table.Thead>
+						<Table.Tbody>{tableContent}</Table.Tbody>
+					</Table>
+				</ScrollArea>
+			</div>
 		);
 	}
 
