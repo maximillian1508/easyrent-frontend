@@ -70,7 +70,7 @@ const Sidebar = () => {
 						<Drawer.Title>
 							<div>
 								<img
-									src="./images/er-horizontal.svg"
+									src="/images/er-horizontal.svg"
 									alt="easyrent"
 									width="75%"
 								/>
