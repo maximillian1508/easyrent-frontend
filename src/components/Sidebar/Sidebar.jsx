@@ -4,6 +4,7 @@ import {
 	Divider,
 	Drawer,
 	Menu,
+	Text,
 	ThemeIcon,
 	Title,
 } from "@mantine/core";
@@ -132,11 +133,10 @@ const Sidebar = () => {
 								</ThemeIcon>
 							}
 							styles={{
-								label: { overflow: "ellipsis" },
-								root: { width: "150px" },
+								root: { width: "175px" },
 							}}
 						>
-							{userName}
+							<Text truncate="end">{userName}</Text>
 						</Button>
 					</Menu.Target>
 
