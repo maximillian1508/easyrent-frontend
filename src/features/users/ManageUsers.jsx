@@ -52,7 +52,7 @@ const ManageUsers = () => {
 		*/
 
 		const tableContent =
-			ids?.length && ids.map((userId) => <User key={userId} userId={userId} />);
+			ids?.length && ids.map((userId, index) => <User key={userId} userId={userId} rowNumber={index + 1} />);
 
 		content = (
 			<div style={{ flex: "1", minHeight: "0" }}>
@@ -60,6 +60,7 @@ const ManageUsers = () => {
 					<Table highlightOnHover>
 						<Table.Thead>
 							<Table.Tr>
+								<Table.Th>#</Table.Th>
 								<Table.Th>Name</Table.Th>
 								<Table.Th>Email</Table.Th>
 								<Table.Th>Phone</Table.Th>
