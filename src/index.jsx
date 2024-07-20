@@ -10,9 +10,10 @@ import {
 import { ModalsProvider } from "@mantine/modals";
 import { Notifications } from "@mantine/notifications";
 import "@mantine/carousel/styles.css";
-// import { Provider as ReduxProvider } from 'react-redux';
+import { Provider as ReduxProvider } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import App from "./App";
+import { store } from "./app/store";
 import buttonClasses from "./components/Button/Button.module.css";
 import inputClasses from "./components/Input/Input.module.css";
 import "@mantine/core/styles.css";
@@ -32,15 +33,17 @@ const theme = createTheme({
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<React.StrictMode>
-		<MantineProvider theme={theme}>
-			<Notifications position="top-center" />
-			<ModalsProvider>
-				<BrowserRouter>
-					<Routes>
-						<Route path="/*" element={<App />} />
-					</Routes>
-				</BrowserRouter>
-			</ModalsProvider>
-		</MantineProvider>
+		<ReduxProvider store={store}>
+			<MantineProvider theme={theme}>
+				<Notifications position="top-center" autoClose={3000} zIndex={1000} />
+				<ModalsProvider>
+					<BrowserRouter>
+						<Routes>
+							<Route path="/*" element={<App />} />
+						</Routes>
+					</BrowserRouter>
+				</ModalsProvider>
+			</MantineProvider>
+		</ReduxProvider>
 	</React.StrictMode>,
 );

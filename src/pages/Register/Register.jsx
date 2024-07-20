@@ -7,7 +7,8 @@ import {
 	Title,
 } from "@mantine/core";
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import useTitle from "../../hooks/useTitle";
 import "./Register.css";
 import axios from "axios";
@@ -157,12 +158,21 @@ const Register = () => {
 
 				<p style={{ textAlign: "center", marginTop: "1rem" }}>
 					Already have an account?{" "}
-					<Link
+					<HashLink
 						to="/login"
 						style={{ color: "#000", textDecoration: "underline" }}
 					>
 						Login
-					</Link>
+					</HashLink>
+				</p>
+
+				<p style={{ textAlign: "center", marginTop: "1rem" }}>
+					<HashLink
+						to="/#"
+						style={{ color: "#000", textDecoration: "underline" }}
+					>
+						Back to Home Page
+					</HashLink>
 				</p>
 			</form>
 		</main>

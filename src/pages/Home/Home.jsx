@@ -1,5 +1,14 @@
 import { Carousel } from "@mantine/carousel";
-import { Button, Card, Group, Image, Select, Text, Title } from "@mantine/core";
+import {
+	Autocomplete,
+	Button,
+	Card,
+	Group,
+	Image,
+	Select,
+	Text,
+	Title,
+} from "@mantine/core";
 import React from "react";
 import "./Home.css";
 import useTitle from "../../hooks/useTitle";
@@ -82,7 +91,6 @@ const FeaturedSection = () => {
 				slideSize={{ base: "80%", sm: "33.33333%" }}
 				slideGap={"md"}
 				align="center"
-				controlOffset="-150px"
 				slidesToScroll={{ base: "1", sm: "3" }}
 				controlSize={50}
 				loop
@@ -170,7 +178,7 @@ const Home = () => {
 							data={location}
 							comboboxProps={{ offset: 0 }}
 							searchable
-							scrollable
+							scrollable="true"
 							maxDropdownHeight={200}
 							styles={{ section: { display: "none" } }}
 						/>
@@ -202,21 +210,21 @@ const Home = () => {
 								comboboxProps={{ withinPortal: false, offset: 0 }}
 								maxDropdownHeight={150}
 								style={{ width: "50%" }}
-								clearable
+								clearable="true"
 							/>
 
-							<Select
+							<Autocomplete
 								label="Min Price"
 								placeholder="Enter Min Price"
-								data={["React", "Angular", "Vue", "Svelte"]}
+								data={["No min", "500", "1000", "1500"]}
 								comboboxProps={{ withinPortal: false, offset: 0 }}
 							/>
-							<Select
+							<Autocomplete
 								label="Max Price"
 								placeholder="Enter Max Price"
 								data={["React", "Angular", "Vue", "Svelte"]}
 								comboboxProps={{ withinPortal: false, offset: 0 }}
-								clearable
+								clearable="true"
 							/>
 						</div>
 					</div>
@@ -267,7 +275,7 @@ const Home = () => {
 					</div>
 					<div className="service-card">
 						<div className="service-icon">
-							<img src="./images/apply.svg" alt="application" />
+							<img src="./images/apply-white.svg" alt="application" />
 						</div>
 						<Title order={3} size="h2">
 							Seamless Application
