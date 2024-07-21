@@ -1,11 +1,11 @@
-.main-container {
+.full-height-container {
     height: calc(100vh - 4rem);
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.main-container > section {
+section.bordered-container { 
     width: 95%;
     height: 90%;
     border: solid 1px lightgrey;
@@ -13,6 +13,7 @@
     padding: 1rem 1.25rem; 
     display: flex;
     flex-direction: column;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .main-upper-section {

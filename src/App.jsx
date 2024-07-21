@@ -9,6 +9,9 @@ import PersistLogin from "./features/auth/PersistLogin";
 import Prefetch from "./features/auth/Prefetch";
 import PublicRoute from "./features/auth/PublicRoute";
 import RequireAuth from "./features/auth/RequireAuth";
+import AddNewProperty from "./features/properties/AddNewProperty";
+import ManageProperties from "./features/properties/ManageProperties";
+import PropertyListing from "./features/properties/PropertyListing";
 import ManageUsers from "./features/users/ManageUsers";
 import AboutUs from "./pages/AboutUs/AboutUs";
 import EmailVerification from "./pages/EmailVerification/EmailVerification";
@@ -28,6 +31,7 @@ function App() {
 						<Route index element={<Home />} />
 						<Route path="faq" element={<Faq />} />
 						<Route path="about-us" element={<AboutUs />} />
+						<Route path="listing" element={<PropertyListing />} />
 					</Route>
 				</Route>
 
@@ -48,6 +52,10 @@ function App() {
 							*/}
 							<Route element={<RequireAuth allowedTypes={[USERTYPE.ADMIN]} />}>
 								<Route path="manage-users" element={<ManageUsers />} />
+								<Route path="manage-properties">
+									<Route index element={<ManageProperties />} />
+									<Route path="add" element={<AddNewProperty />} />
+								</Route>
 							</Route>
 						</Route>
 					</Route>

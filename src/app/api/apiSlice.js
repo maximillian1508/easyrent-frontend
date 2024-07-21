@@ -44,6 +44,6 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
 export const apiSlice = createApi({
 	//in dev: localhost/api
 	baseQuery: baseQueryWithReauth,
-	tagTypes: ["User"], //tags used to cache data
+	tagTypes: ["User", "Property"], //tags used to cache data
 	endpoints: (builder) => ({}), //empty builder to provide extended slices
 });
