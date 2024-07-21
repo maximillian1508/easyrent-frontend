@@ -140,6 +140,7 @@ const AddNewUser = ({ closeModal }) => {
 								userType: option?.value || "customer",
 							})
 						}
+						allowDeselect={false}
 						defaultValue="customer"
 						required
 					/>

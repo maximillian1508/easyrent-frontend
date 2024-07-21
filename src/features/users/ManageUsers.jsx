@@ -52,11 +52,14 @@ const ManageUsers = () => {
 		*/
 
 		const tableContent =
-			ids?.length && ids.map((userId, index) => <User key={userId} userId={userId} rowNumber={index + 1} />);
+			ids?.length &&
+			ids.map((userId, index) => (
+				<User key={userId} userId={userId} rowNumber={index + 1} />
+			));
 
 		content = (
 			<div style={{ flex: "1", minHeight: "0" }}>
-				<ScrollArea h="100%" minWidth={900}>
+				<ScrollArea h="100%">
 					<Table highlightOnHover>
 						<Table.Thead>
 							<Table.Tr>
@@ -77,8 +80,8 @@ const ManageUsers = () => {
 	}
 
 	return (
-		<main className="main-container">
-			<section>
+		<main className="full-height-container">
+			<section className="bordered-container">
 				<Modal
 					opened={modalOpened}
 					onClose={modalClose}

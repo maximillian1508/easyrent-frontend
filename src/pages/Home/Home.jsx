@@ -9,77 +9,34 @@ import {
 	Text,
 	Title,
 } from "@mantine/core";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Home.css";
+import axios from "axios";
 import useTitle from "../../hooks/useTitle";
 
 const FeaturedSection = () => {
-	const featuredListing = [
-		{
-			propertyName: "Parkhill Residence",
-			image: "",
-			rentalType: "Room",
-			price: "200",
-			roomAmount: "2",
-			address: "Bukit Jalil",
-		},
-		{
-			propertyName: "Parkhill Residence",
-			image: "",
-			rentalType: "Room",
-			price: "200",
-			roomAmount: "2",
-			address: "Bukit Jalil",
-		},
-		{
-			propertyName: "Parkhill Residence",
-			image: "",
-			rentalType: "Room",
-			price: "200",
-			roomAmount: "2",
-			address: "Bukit Jalil",
-		},
-		{
-			propertyName: "Parkhill Residence",
-			image: "",
-			rentalType: "Room",
-			price: "200",
-			roomAmount: "2",
-			address: "Bukit Jalil",
-		},
-		{
-			propertyName: "Parkhill Residence",
-			image: "",
-			rentalType: "Room",
-			price: "200",
-			roomAmount: "2",
-			address: "Bukit Jalil",
-		},
-		{
-			propertyName: "Parkhill Residence",
-			image: "",
-			rentalType: "Room",
-			price: "200",
-			roomAmount: "2",
-			address: "Bukit Jalil",
-		},
-		{
-			propertyName: "Parkhill Residence",
-			image: "",
-			rentalType: "Room",
-			price: "200",
-			roomAmount: "2",
-			address: "Bukit Jalil",
-		},
-		{
-			propertyName: "Parkhill Residence",
-			image: "",
-			rentalType: "Room",
-			price: "200",
-			roomAmount: "2",
-			address: "Bukit Jalil",
-		},
-	];
+	const [featuredProperties, setFeaturedProperties] = useState([]);
+	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState(null);
+
+	useEffect(() => {
+		const fetchFeaturedProperties = async () => {
+			try {
+				setLoading(true);
+				const response = await axios.get("/api/properties/featured");
+				setFeaturedProperties(response.data.properties);
+				setLoading(false);
+			} catch (err) {
+				setError(err);
+				setLoading(false);
+			}
+		};
+
+		fetchFeaturedProperties();
+	}, []);
+
+	if (loading) return <div>Loading...</div>;
+	if (error) return <div>Error: {error.message}</div>;
 
 	return (
 		<>
@@ -103,11 +60,17 @@ const FeaturedSection = () => {
 					},
 				}}
 			>
-				{featuredListing.map((item) => (
-					<Carousel.Slide key={item.propertyName}>
-						<Card shadow="sm" padding="lg" radius="md" withBorder>
+				{featuredProperties?.map((item) => (
+					<Carousel.Slide key={item.name}>
+						<Card shadow="sm" padding="lg" radius="md" withBorder h="100%">
 							<Card.Section style={{ borderBottom: "solid 1px lightgrey" }}>
-								<Image src={item.image} height={160} alt={item.propertyName} />
+								<Image
+									src={item.images[0]}
+									height={160}
+									alt={item.name}
+									fallbackSrc="/images/no-image.svg"
+									fit="contain"
+								/>
 							</Card.Section>
 
 							<Group
@@ -117,17 +80,20 @@ const FeaturedSection = () => {
 								styles={{ root: { gap: "0" } }}
 							>
 								<Text fw={500} style={{ width: "70%", textWrap: "wrap" }}>
-									{item.rentalType} Rental - {item.roomAmount} Bedroom(s)
+									{item.name}
 								</Text>
-								<Text fw={600}>RM{item.price}</Text>
+								<Text fw={600}>
+									RM{item.type === "Unit Rental" ? item.price : item.priceRange}
+								</Text>
 							</Group>
 
 							<Text
 								size="sm"
 								c="dimmed"
-								style={{ width: "70%", textWrap: "wrap", marginBottom: "1rem" }}
+								style={{ width: "70%", textWrap: "wrap", marginBottom: "2rem" }}
+								lineClamp={2}
 							>
-								{item.propertyName}, {item.address}
+								{item.type} - {item.address}
 							</Text>
 
 							<Button
@@ -135,7 +101,7 @@ const FeaturedSection = () => {
 								radius="md"
 								component="a"
 								href="/listing"
-								style={{ width: "fit-content", margin: "1rem auto 0 auto" }}
+								style={{ width: "fit-content", margin: "auto auto 0 auto" }}
 							>
 								View Details
 							</Button>

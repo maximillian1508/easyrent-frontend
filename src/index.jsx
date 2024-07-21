@@ -35,7 +35,7 @@ root.render(
 	<React.StrictMode>
 		<ReduxProvider store={store}>
 			<MantineProvider theme={theme}>
-				<Notifications position="top-center" autoClose={3000} zIndex={1000} />
+				<Notifications position="top-center" autoClose={2500} zIndex={1000} />
 				<ModalsProvider>
 					<BrowserRouter>
 						<Routes>

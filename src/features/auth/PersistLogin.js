@@ -13,6 +13,7 @@ const PersistLogin = () => {
 		"/login",
 		"/register",
 		"/email-verification",
+		"/listing",
 	];
 
 	const [persist] = usePersist();

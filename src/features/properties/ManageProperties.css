@@ -1,0 +1,20 @@
+.main-container {
+    width: 92.5%;
+    margin: 1.25rem auto;
+}
+
+.bordered-container > .form-row {
+    justify-content: space-between;
+    flex-direction: row;
+	display: flex;
+}
+
+.form-row > .form-row-label { 
+    width: 25%
+}
+
+.form-row > .form-row-input {
+    width: 70%;
+}
+
+

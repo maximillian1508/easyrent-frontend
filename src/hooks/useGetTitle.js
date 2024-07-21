@@ -11,6 +11,9 @@ const useGetTitle = () => {
 		case "/manage-users":
 			title = "Manage Users";
 			return title;
+		case "/manage-properties":
+			title = "Manage Properties";
+			return title;
 		default:
 			return "Dashboard"; // Default title
 	}
