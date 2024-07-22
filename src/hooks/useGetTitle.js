@@ -1,22 +1,29 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { matchPath, useLocation } from "react-router-dom";
 
 const useGetTitle = () => {
-	let title = "Dashboard";
 	const location = useLocation();
-	switch (location.pathname) {
-		case "/dashboard":
-			title = "Dashboard";
-			return title;
-		case "/manage-users":
-			title = "Manage Users";
-			return title;
-		case "/manage-properties":
-			title = "Manage Properties";
-			return title;
-		default:
-			return "Dashboard"; // Default title
+
+	const routes = [
+		{ path: "/dashboard", title: "Dashboard" },
+		{ path: "/profile", title: "Profile" },
+		{ path: "/manage-users", title: "Manage Users" },
+		{ path: "/manage-properties", title: "Manage Properties" },
+		{ path: "/manage-properties/add", title: "Add Property" },
+		{ path: "/manage-properties/edit/:id", title: "Edit Property" },
+		{ path: "/manage-properties/details/:id", title: "Property Details" },
+		{ path: "/manage-properties/applications/:id", title: "Property Details" },
+	];
+
+	for (const route of routes) {
+		const match = matchPath(route.path, location.pathname);
+		if (match) {
+			console.log(match);
+			return route.title;
+		}
 	}
+
+	return "Dashboard"; // Default title
 };
 
 export default useGetTitle;
