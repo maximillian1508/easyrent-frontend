@@ -61,11 +61,33 @@ export const propertiesApiSlice = apiSlice.injectEndpoints({
 			invalidatesTags: [{ type: "Property", id: "LIST" }],
 		}),
 		updateProperty: builder.mutation({
-			query: (initialPropertyData) => ({
-				url: `/properties/${initialPropertyData.id}`,
-				method: "PATCH",
-				body: { ...initialPropertyData },
-			}),
+			query: (initialPropertyData) => {
+				const formData = new FormData();
+
+				// Append text fields
+				for (const [key, value] of Object.entries(initialPropertyData)) {
+					if (key !== "newImages" && key !== "rooms") {
+						formData.append(key, value);
+					}
+				}
+
+				//APPEND ROOMS AS JSON STRING
+				if (initialPropertyData.rooms) {
+					formData.append("rooms", JSON.stringify(initialPropertyData.rooms));
+				}
+
+				// Append images
+				initialPropertyData.newImages.forEach((file, index) => {
+					formData.append("newImages", file);
+				});
+
+				return {
+					url: `/properties/${initialPropertyData.id}`,
+					method: "PATCH",
+					body: formData,
+					// Don't manually set Content-Type, let it be automatic
+				};
+			},
 			invalidatesTags: (result, error, arg) => [
 				{ type: "Property", id: arg.id },
 			],

@@ -10,9 +10,13 @@ import Prefetch from "./features/auth/Prefetch";
 import PublicRoute from "./features/auth/PublicRoute";
 import RequireAuth from "./features/auth/RequireAuth";
 import AddNewProperty from "./features/properties/AddNewProperty";
+import EditProperty from "./features/properties/EditProperty";
+import ListingDetails from "./features/properties/ListingDetails";
 import ManageProperties from "./features/properties/ManageProperties";
+import PropertyDetails from "./features/properties/PropertyDetails";
 import PropertyListing from "./features/properties/PropertyListing";
 import ManageUsers from "./features/users/ManageUsers";
+import Profile from "./features/users/Profile";
 import AboutUs from "./pages/AboutUs/AboutUs";
 import EmailVerification from "./pages/EmailVerification/EmailVerification";
 import Faq from "./pages/Faq/Faq";
@@ -32,6 +36,7 @@ function App() {
 						<Route path="faq" element={<Faq />} />
 						<Route path="about-us" element={<AboutUs />} />
 						<Route path="listing" element={<PropertyListing />} />
+						<Route path="listing/:propertyId" element={<ListingDetails />} />
 					</Route>
 				</Route>
 
@@ -44,6 +49,7 @@ function App() {
 					<Route element={<Prefetch />}>
 						<Route element={<DashboardLayout />}>
 							<Route path="dashboard" element={<Dashboard />} />
+							<Route path="profile" element={<Profile />} />
 							{/*
 							<Route
 								element={<RequireAuth allowedTypes={[USERTYPE.CUSTOMER]} />}
@@ -55,6 +61,11 @@ function App() {
 								<Route path="manage-properties">
 									<Route index element={<ManageProperties />} />
 									<Route path="add" element={<AddNewProperty />} />
+									<Route
+										path="details/:propertyId"
+										element={<PropertyDetails />}
+									/>
+									<Route path="edit/:propertyId" element={<EditProperty />} />
 								</Route>
 							</Route>
 						</Route>

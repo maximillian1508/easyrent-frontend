@@ -1,7 +1,7 @@
 import { Button, Grid } from "@mantine/core";
 import React, { useEffect, useState } from "react";
 import useTitle from "../../hooks/useTitle";
-import Property from "./Property";
+import Listing from "./Listing";
 import { useGetPropertiesQuery } from "./propertiesApiSlice";
 
 const PropertyListing = () => {
@@ -35,7 +35,7 @@ const PropertyListing = () => {
 		const gridContent =
 			ids?.length &&
 			ids.map((propertyId, index) => (
-				<Property key={propertyId} propertyId={propertyId} />
+				<Listing key={propertyId} propertyId={propertyId} />
 			));
 
 		content = (
