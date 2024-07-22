@@ -11,7 +11,7 @@ const Prefetch = () => {
 			usersApiSlice.util.prefetch("getUsers", "usersList", { force: true }),
 		);
 		store.dispatch(
-			usersApiSlice.util.prefetch("getProperties", "propertiesList", {
+			propertiesApiSlice.util.prefetch("getProperties", "propertiesList", {
 				force: true,
 			}),
 		);
