@@ -4,13 +4,14 @@ import {
 	Grid,
 	Group,
 	Image,
+	Indicator,
 	Text,
 	ThemeIcon,
 } from "@mantine/core";
 import React, { memo } from "react";
 import { useGetPropertiesQuery } from "./propertiesApiSlice";
 
-const Property = ({ propertyId }) => {
+const Listing = ({ propertyId }) => {
 	const { property } = useGetPropertiesQuery("propertiesList", {
 		selectFromResult: ({ data }) => ({
 			property: data?.entities[propertyId],
@@ -18,7 +19,7 @@ const Property = ({ propertyId }) => {
 	});
 	if (property) {
 		return (
-			<Grid.Col key={propertyId} span={{ base: 12, xs: 6, sm: 3 }}>
+			<Grid.Col key={propertyId} span={{ base: 12, xs: 6, sm: 4 }}>
 				<Card shadow="sm" padding="lg" radius="md" withBorder h="100%">
 					<Card.Section
 						style={{
@@ -31,8 +32,8 @@ const Property = ({ propertyId }) => {
 							src={property.images[0]}
 							height={160}
 							alt={property.name}
+							fallbackSrc="/images/no-image.svg"
 							fit="contain"
-							fallbackSrc="./images/no-image.svg"
 						/>
 						<Text
 							style={{
@@ -54,34 +55,25 @@ const Property = ({ propertyId }) => {
 					<Group
 						justify="space-between"
 						mt="md"
-						mb="xs"
+						mb="0"
 						styles={{ root: { gap: "0" } }}
-						align="end"
 					>
-						<Text
-							fw={500}
-							style={{ width: "70%", textWrap: "wrap" }}
-							lineClamp={1}
-						>
+						<Text fw={500} style={{ width: "70%", textWrap: "wrap" }}>
 							{property.name}
 						</Text>
-						<ThemeIcon
-							color={property.isFull ? "red" : "green"}
-							styles={{ root: { width: "fit-content" } }}
-						>
-							{property.isFull ? "Full" : "Available"}
-						</ThemeIcon>
+						<Text fw={600}>
+							RM
+							{property.type === "Unit Rental"
+								? property.price
+								: property.priceRange}
+						</Text>
 					</Group>
 
 					<Text
 						size="sm"
 						c="dimmed"
-						lineClamp={3}
-						style={{
-							width: "80%",
-							textWrap: "wrap",
-							marginBottom: "2rem",
-						}}
+						style={{ width: "70%", textWrap: "wrap", marginBottom: "2rem" }}
+						lineClamp={2}
 					>
 						{property.address}
 					</Text>
@@ -90,7 +82,7 @@ const Property = ({ propertyId }) => {
 						variant="er-blue"
 						radius="md"
 						component="a"
-						href={`/manage-properties/details/${propertyId}`}
+						href={`/listing/${propertyId}`}
 						style={{ width: "fit-content", margin: "auto auto 0 auto" }}
 					>
 						View Details
@@ -103,7 +95,7 @@ const Property = ({ propertyId }) => {
 	}
 };
 
-const memoizedProperty = memo(Property, (prevProps, nextProps) => {
+const memoizedProperty = memo(Listing, (prevProps, nextProps) => {
 	return prevProps.propertyId === nextProps.propertyId;
 });
 

@@ -63,7 +63,13 @@ const FeaturedSection = () => {
 				{featuredProperties?.map((item) => (
 					<Carousel.Slide key={item.name}>
 						<Card shadow="sm" padding="lg" radius="md" withBorder h="100%">
-							<Card.Section style={{ borderBottom: "solid 1px lightgrey" }}>
+							<Card.Section
+								style={{
+									borderBottom: "solid 1px lightgrey",
+									position: "relative",
+									marginBottom: "0.5rem",
+								}}
+							>
 								<Image
 									src={item.images[0]}
 									height={160}
@@ -71,6 +77,21 @@ const FeaturedSection = () => {
 									fallbackSrc="/images/no-image.svg"
 									fit="contain"
 								/>
+								<Text
+									style={{
+										position: "absolute",
+										bottom: "0",
+										right: "50%",
+										transform: "translate(50%, 50%)",
+										backgroundColor: "#fff",
+										borderRadius: "5px",
+										border: "solid 1px lightgrey",
+										fontWeight: "500",
+										padding: "0 0.5rem",
+									}}
+								>
+									{item.type}
+								</Text>
 							</Card.Section>
 
 							<Group
@@ -93,14 +114,14 @@ const FeaturedSection = () => {
 								style={{ width: "70%", textWrap: "wrap", marginBottom: "2rem" }}
 								lineClamp={2}
 							>
-								{item.type} - {item.address}
+								{item.address}
 							</Text>
 
 							<Button
 								variant="er-blue"
 								radius="md"
 								component="a"
-								href="/listing"
+								href={`/listing/${item._id}`}
 								style={{ width: "fit-content", margin: "auto auto 0 auto" }}
 							>
 								View Details
