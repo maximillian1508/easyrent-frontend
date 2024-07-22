@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
-import { Link, Outlet, useLocation } from "react-router-dom";
+import { Link, Outlet, matchPath, useLocation } from "react-router-dom";
+import { USERTYPE } from "../../config/UserType";
+import useAuth from "../../hooks/useAuth";
 import usePersist from "../../hooks/usePersist";
 import { useRefreshMutation } from "./authApiSlice";
 import { selectCurrentToken } from "./authSlice";
@@ -14,6 +16,7 @@ const PersistLogin = () => {
 		"/register",
 		"/email-verification",
 		"/listing",
+		"/listing/:propertyId",
 	];
 
 	const [persist] = usePersist();
@@ -21,6 +24,7 @@ const PersistLogin = () => {
 	const effectRan = useRef(false);
 	const [trueSuccess, setTrueSuccess] = useState(false);
 	const location = useLocation();
+	const { userType } = useAuth();
 
 	const [refresh, { isUninitialized, isLoading, isSuccess, isError, error }] =
 		useRefreshMutation();
@@ -31,6 +35,14 @@ const PersistLogin = () => {
 			const verifyRefreshToken = async () => {
 				console.log("verifying refresh token");
 				try {
+					if (
+						!isPublicRoute() ||
+						(isPublicRoute() && userType === USERTYPE.CUSTOMER)
+					) {
+						await refresh();
+						setTrueSuccess(true);
+					}
+					console.log("getting refresh token");
 					await refresh();
 					setTrueSuccess(true);
 				} catch (err) {
@@ -46,7 +58,13 @@ const PersistLogin = () => {
 
 	let content;
 
-	if (publicRoutes.includes(location.pathname)) {
+	const isPublicRoute = () => {
+		return publicRoutes.some((route) =>
+			matchPath({ path: route, exact: true, strict: false }, location.pathname),
+		);
+	};
+
+	if (isPublicRoute()) {
 		//persist: no
 		console.log("public route");
 		content = <Outlet />;
