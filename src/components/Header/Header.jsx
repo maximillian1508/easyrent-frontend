@@ -26,11 +26,11 @@ const Header = () => {
 					if (scrollTop > offset) {
 						ref.current.classList.add("whitebar");
 						setLoginVariant("er-blue");
-						setIconSrc("images/er-horizontal.svg");
+						setIconSrc("/images/er-horizontal.svg");
 					} else {
 						ref.current.classList.remove("whitebar");
 						setLoginVariant("er-white");
-						setIconSrc("images/er-horizontal-white.svg");
+						setIconSrc("/images/er-horizontal-white.svg");
 					}
 				}
 			};
@@ -83,7 +83,7 @@ const Header = () => {
 				<Link to="/">
 					<img
 						src={
-							location.pathname === "/" ? iconSrc : "images/er-horizontal.svg"
+							location.pathname === "/" ? iconSrc : "/images/er-horizontal.svg"
 						}
 						alt="Easyrent"
 					/>
