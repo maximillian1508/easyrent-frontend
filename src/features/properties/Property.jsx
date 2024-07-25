@@ -4,10 +4,12 @@ import {
 	Grid,
 	Group,
 	Image,
+	Indicator,
 	Text,
 	ThemeIcon,
 } from "@mantine/core";
 import React, { memo } from "react";
+import { useGetApplicationsQuery } from "../applications/applicationsApiSlice";
 import { useGetPropertiesQuery } from "./propertiesApiSlice";
 
 const Property = ({ propertyId }) => {
@@ -16,6 +18,16 @@ const Property = ({ propertyId }) => {
 			property: data?.entities[propertyId],
 		}),
 	});
+
+	const { data: applications } = useGetApplicationsQuery();
+
+	const pendingApplicationCount =
+		applications?.ids.filter(
+			(id) =>
+				applications.entities[id].property._id === propertyId &&
+				applications.entities[id].status === "Waiting for Response",
+		).length || 0;
+
 	if (property) {
 		return (
 			<Grid.Col key={propertyId} span={{ base: 12, xs: 6, sm: 3 }}>
@@ -66,10 +78,10 @@ const Property = ({ propertyId }) => {
 							{property.name}
 						</Text>
 						<ThemeIcon
-							color={property.isFull ? "red" : "green"}
+							color={!property.isAvailable ? "red" : "green"}
 							styles={{ root: { width: "fit-content" } }}
 						>
-							{property.isFull ? "Full" : "Available"}
+							{!property.isAvailable ? "Full" : "Available"}
 						</ThemeIcon>
 					</Group>
 
@@ -86,15 +98,29 @@ const Property = ({ propertyId }) => {
 						{property.address}
 					</Text>
 
-					<Button
-						variant="er-blue"
-						radius="md"
-						component="a"
-						href={`/manage-properties/details/${propertyId}`}
-						style={{ width: "fit-content", margin: "auto auto 0 auto" }}
+					<Indicator
+						label={pendingApplicationCount}
+						size={30}
+						radius="xl"
+						color="red"
+						disabled={pendingApplicationCount === 0}
+						position="top-end"
+						styles={{
+							root: { margin: "auto auto 0 auto" },
+							indicator: { fontSize: "1.1rem", fontWeight: "500" },
+						}}
+						withBorder
 					>
-						View Details
-					</Button>
+						<Button
+							variant="er-blue"
+							radius="md"
+							component="a"
+							href={`/manage-properties/details/${propertyId}`}
+							style={{ width: "fit-content" }}
+						>
+							View Details
+						</Button>
+					</Indicator>
 				</Card>
 			</Grid.Col>
 		);

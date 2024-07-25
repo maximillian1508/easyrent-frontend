@@ -18,6 +18,7 @@ import buttonClasses from "./components/Button/Button.module.css";
 import inputClasses from "./components/Input/Input.module.css";
 import "@mantine/core/styles.css";
 import "@mantine/notifications/styles.css";
+import "@mantine/dates/styles.css";
 
 const theme = createTheme({
 	components: {

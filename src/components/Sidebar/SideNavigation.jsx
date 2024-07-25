@@ -19,7 +19,7 @@ const custNav = [
 		),
 	},
 	{
-		label: "Application History",
+		label: "Application",
 		href: "/application",
 		leftSection: (
 			<ThemeIcon variant="transparent">
@@ -27,6 +27,41 @@ const custNav = [
 					src="/images/apply.svg"
 					style={{ width: "80%" }}
 					alt="application"
+				/>
+			</ThemeIcon>
+		),
+	},
+	{
+		label: "Contract",
+		href: "/contract",
+		leftSection: (
+			<ThemeIcon variant="transparent">
+				<img
+					src="/images/contract.svg"
+					style={{ width: "80%" }}
+					alt="contract"
+				/>
+			</ThemeIcon>
+		),
+	},
+	{
+		label: "Payment",
+		href: "/payment",
+		leftSection: (
+			<ThemeIcon variant="transparent">
+				<img src="/images/payment.svg" style={{ width: "80%" }} alt="payment" />
+			</ThemeIcon>
+		),
+	},
+	{
+		label: "Complaint",
+		href: "/complaint",
+		leftSection: (
+			<ThemeIcon variant="transparent">
+				<img
+					src="/images/complaint.svg"
+					style={{ width: "80%" }}
+					alt="complaint"
 				/>
 			</ThemeIcon>
 		),
@@ -65,6 +100,19 @@ const adminNav = [
 					src="/images/property.svg"
 					style={{ width: "70%" }}
 					alt="properties"
+				/>
+			</ThemeIcon>
+		),
+	},
+	{
+		label: "Contracts",
+		href: "/manage-contracts",
+		leftSection: (
+			<ThemeIcon variant="transparent">
+				<img
+					src="/images/contract.svg"
+					style={{ width: "70%" }}
+					alt="contracts"
 				/>
 			</ThemeIcon>
 		),

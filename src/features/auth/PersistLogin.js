@@ -24,7 +24,7 @@ const PersistLogin = () => {
 	const effectRan = useRef(false);
 	const [trueSuccess, setTrueSuccess] = useState(false);
 	const location = useLocation();
-	const { userType } = useAuth();
+	const { userType, userId } = useAuth();
 
 	const [refresh, { isUninitialized, isLoading, isSuccess, isError, error }] =
 		useRefreshMutation();
@@ -35,13 +35,16 @@ const PersistLogin = () => {
 			const verifyRefreshToken = async () => {
 				console.log("verifying refresh token");
 				try {
+					/*
 					if (
 						!isPublicRoute() ||
-						(isPublicRoute() && userType === USERTYPE.CUSTOMER)
+						(isPublicRoute() && userType === USERTYPE.CUSTOMER && userId)
 					) {
 						await refresh();
 						setTrueSuccess(true);
 					}
+						*/
+
 					console.log("getting refresh token");
 					await refresh();
 					setTrueSuccess(true);
