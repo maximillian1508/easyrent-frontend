@@ -2,6 +2,7 @@ import { Carousel } from "@mantine/carousel";
 import {
 	Button,
 	Image,
+	Indicator,
 	ScrollArea,
 	Spoiler,
 	Table,
@@ -13,6 +14,8 @@ import { notifications } from "@mantine/notifications";
 import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useTitle from "../../hooks/useTitle";
+import { useGetApplicationsQuery } from "../applications/applicationsApiSlice";
+import { useGetTransactionsQuery } from "../transactions/transactionsApiSlice";
 import {
 	useDeletePropertyMutation,
 	useGetPropertiesQuery,
@@ -27,6 +30,24 @@ const PropertyDetails = () => {
 			property: data?.entities[propertyId],
 		}),
 	});
+
+	const { data: transactionsData, isLoading: transactionsLoading } =
+		useGetTransactionsQuery();
+
+	// Filter transactions for this property
+	const propertyTransactions = transactionsData?.ids
+		.map((id) => transactionsData.entities[id])
+		.filter((transaction) => transaction.property._id === propertyId);
+
+	const { data: applications } = useGetApplicationsQuery();
+
+	const pendingApplicationCount =
+		applications?.ids.filter(
+			(id) =>
+				applications.entities[id].property._id === propertyId &&
+				applications.entities[id].status === "Waiting for Response",
+		).length || 0;
+
 	const navigate = useNavigate();
 
 	const [deleteProperty, { isLoading, isSuccess, isError, error }] =
@@ -37,7 +58,7 @@ const PropertyDetails = () => {
 			navigate("/manage-properties");
 			notifications.show({
 				title: "Success",
-				message: "User deleted successfully",
+				message: "Property deleted successfully",
 				color: "green",
 			});
 		}
@@ -52,6 +73,10 @@ const PropertyDetails = () => {
 			});
 		}
 	});
+
+	console.log(transactionsData);
+	console.log(propertyTransactions);
+	console.log(property);
 
 	return (
 		<main className="main-container">
@@ -74,23 +99,36 @@ const PropertyDetails = () => {
 					>
 						Go Back
 					</Button>
-					<Button
-						variant="outline"
-						color="black"
-						component="a"
-						href={`/manage-properties/applications/${propertyId}`}
-						leftSection={
-							<ThemeIcon variant="transparent">
-								<img
-									src="/images/apply.svg"
-									style={{ width: "90%" }}
-									alt="Applications"
-								/>
-							</ThemeIcon>
-						}
+					<Indicator
+						label={pendingApplicationCount}
+						size={30}
+						radius="xl"
+						color="red"
+						disabled={pendingApplicationCount === 0}
+						position="top-end"
+						styles={{
+							indicator: { fontSize: "1.1rem", fontWeight: "500" },
+						}}
+						withBorder
 					>
-						Applications
-					</Button>
+						<Button
+							variant="outline"
+							color="black"
+							component="a"
+							href={`/manage-properties/applications/${propertyId}`}
+							leftSection={
+								<ThemeIcon variant="transparent">
+									<img
+										src="/images/apply.svg"
+										style={{ width: "90%" }}
+										alt="Applications"
+									/>
+								</ThemeIcon>
+							}
+						>
+							Applications
+						</Button>
+					</Indicator>
 				</div>
 				<div
 					style={{
@@ -252,9 +290,72 @@ const PropertyDetails = () => {
 					</div>
 				</section>
 			)}
-			<section className="bordered-container" style={{ width: "100%" }}>
+			<section
+				className="bordered-container"
+				style={{ marginBottom: "2.5rem", width: "100%" }}
+			>
 				<div className="main-upper-section">
-					<h1>Payment History</h1>
+					<h1>Transactions</h1>
+				</div>
+				<div style={{ flex: "1", minHeight: "0" }}>
+					<ScrollArea h="100%">
+						<Table highlightOnHover>
+							<Table.Thead>
+								<Table.Tr>
+									<Table.Th>#</Table.Th>
+									{property?.type === "Room Rental" && (
+										<Table.Th>Room</Table.Th>
+									)}
+									<Table.Th>Cust. Name</Table.Th>
+									<Table.Th>Cust. Email</Table.Th>
+									<Table.Th>Type</Table.Th>
+									<Table.Th>Amount</Table.Th>
+									<Table.Th>Due Date</Table.Th>
+									<Table.Th>Status</Table.Th>
+									<Table.Th>Payment Date</Table.Th>
+								</Table.Tr>
+							</Table.Thead>
+							<Table.Tbody>
+								{transactionsLoading ? (
+									<Table.Tr>
+										<Table.Td colSpan={6}>Loading transactions...</Table.Td>
+									</Table.Tr>
+								) : propertyTransactions && propertyTransactions.length > 0 ? (
+									propertyTransactions.map((transaction, index) => (
+										<Table.Tr key={transaction.id}>
+											<Table.Td>{index + 1}</Table.Td>
+											{transaction.roomName && (
+												<Table.Td>{transaction.roomName}</Table.Td>
+											)}
+											<Table.Td>
+												{transaction.user.firstname} {transaction.user.lastname}
+											</Table.Td>
+											<Table.Td>{transaction.user.email}</Table.Td>
+											<Table.Td>{transaction.type}</Table.Td>
+											<Table.Td>RM{transaction.amount}</Table.Td>
+											<Table.Td>
+												{new Date(transaction.dueDate).toLocaleDateString()}
+											</Table.Td>
+											<Table.Td>{transaction.status}</Table.Td>
+											<Table.Td>
+												{transaction.paymentDate
+													? new Date(
+															transaction.paymentDate,
+														).toLocaleDateString()
+													: "-"}
+											</Table.Td>
+										</Table.Tr>
+									))
+								) : (
+									<Table.Tr>
+										<Table.Td colSpan={6}>
+											No transactions found for this property.
+										</Table.Td>
+									</Table.Tr>
+								)}
+							</Table.Tbody>
+						</Table>
+					</ScrollArea>
 				</div>
 			</section>
 		</main>

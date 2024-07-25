@@ -32,6 +32,11 @@ export const authApiSlice = apiSlice.injectEndpoints({
 			query: () => ({
 				url: "/auth/refresh",
 				method: "GET",
+				headers: {
+					"Cache-Control": "no-cache, no-store, must-revalidate",
+					Pragma: "no-cache",
+					Expires: "0",
+				},
 			}),
 			async onQueryStarted(arg, { dispatch, queryFulfilled }) {
 				try {
