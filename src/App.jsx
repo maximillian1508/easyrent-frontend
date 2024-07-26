@@ -11,6 +11,8 @@ import PersistLogin from "./features/auth/PersistLogin";
 import Prefetch from "./features/auth/Prefetch";
 import PublicRoute from "./features/auth/PublicRoute";
 import RequireAuth from "./features/auth/RequireAuth";
+import ComplaintHistory from "./features/complaints/ComplaintHistory";
+import ManageComplaints from "./features/complaints/ManageComplaints";
 import ContractHistory from "./features/contracts/ContractHistory";
 import ManageContracts from "./features/contracts/ManageContracts";
 import SignAndPay from "./features/contracts/SignAndPay";
@@ -70,6 +72,7 @@ function App() {
 									/>
 								</Route>
 								<Route path="contract" element={<ContractHistory />} />
+								<Route path="complaint" element={<ComplaintHistory />} />
 								<Route path="payment" element={<PaymentHistory />} />
 								<Route
 									path="payment-success/:paymentIntentId"
@@ -80,6 +83,10 @@ function App() {
 							<Route element={<RequireAuth allowedTypes={[USERTYPE.ADMIN]} />}>
 								<Route path="manage-users" element={<ManageUsers />} />
 								<Route path="manage-contracts" element={<ManageContracts />} />
+								<Route
+									path="manage-complaints"
+									element={<ManageComplaints />}
+								/>
 								<Route
 									path="manage-transactions"
 									element={<ManageTransactions />}

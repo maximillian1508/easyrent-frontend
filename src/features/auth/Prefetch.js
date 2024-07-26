@@ -3,6 +3,7 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import { store } from "../../app/store";
 import { applicationsApiSlice } from "../applications/applicationsApiSlice";
+import { complaintsApiSlice } from "../complaints/complaintsApiSlice";
 import { contractsApiSlice } from "../contracts/contractsApiSlice";
 import { propertiesApiSlice } from "../properties/propertiesApiSlice";
 import { transactionsApiSlice } from "../transactions/transactionsApiSlice";
@@ -40,6 +41,11 @@ const Prefetch = () => {
 					force: true,
 				},
 			),
+		);
+		store.dispatch(
+			complaintsApiSlice.util.prefetch("getComplaints", "complaintsList", {
+				force: true,
+			}),
 		);
 	}, []);
 

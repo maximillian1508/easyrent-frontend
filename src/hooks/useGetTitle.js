@@ -10,6 +10,7 @@ const useGetTitle = () => {
 		{ path: "/manage-users", title: "Manage Users" },
 		{ path: "/manage-contracts", title: "Manage Contracts" },
 		{ path: "/manage-transactions", title: "Manage Transactions" },
+		{ path: "/manage-complaints", title: "Manage Complaints" },
 		{ path: "/manage-properties", title: "Manage Properties" },
 		{ path: "/manage-properties/add", title: "Add Property" },
 		{ path: "/manage-properties/edit/:id", title: "Edit Property" },
@@ -26,6 +27,10 @@ const useGetTitle = () => {
 		{
 			path: "/contract",
 			title: "Contract History",
+		},
+		{
+			path: "/complaint",
+			title: "Complaint History",
 		},
 		{
 			path: "/payment",
