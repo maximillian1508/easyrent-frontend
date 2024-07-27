@@ -287,18 +287,6 @@ const ListingDetails = () => {
 								</Text>
 							</>
 						)}
-						<Spoiler maxHeight={130} showLabel="Show more" hideLabel="Hide">
-							<p>Property Desc: {property?.description}</p>
-						</Spoiler>
-						{property?.type === "Room Rental" && (
-							<Spoiler maxHeight={130} showLabel="Show more" hideLabel="Hide">
-								<p>
-									Room Desc:{" "}
-									{property?.rooms?.[selectedRoom]?.description ||
-										"No description available"}
-								</p>
-							</Spoiler>
-						)}
 					</div>
 					<form
 						onSubmit={handleSubmit}
@@ -388,6 +376,37 @@ const ListingDetails = () => {
 							{property?.isFullyOccupied ? "Fully Occupied" : "Apply"}
 						</Button>
 					</form>
+				</div>
+				<div
+					style={{
+						display: "flex",
+						flexDirection: "row",
+						justifyContent: "space-between",
+					}}
+				>
+					<Spoiler
+						maxHeight={100}
+						showLabel="Show more"
+						hideLabel="Hide"
+						w="45%"
+					>
+						<Title>About Property</Title>
+						<p>Property Desc: {property?.description}</p>
+					</Spoiler>
+					{property?.type === "Room Rental" && (
+						<Spoiler
+							maxHeight={100}
+							showLabel="Show more"
+							hideLabel="Hide"
+							w="45%"
+						>
+							<p>
+								Room Desc:{" "}
+								{property?.rooms?.[selectedRoom]?.description ||
+									"No description available"}
+							</p>
+						</Spoiler>
+					)}
 				</div>
 			</section>
 		</main>
