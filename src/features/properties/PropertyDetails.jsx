@@ -190,6 +190,17 @@ const PropertyDetails = () => {
 								</Carousel.Slide>
 							)}
 						</Carousel>
+						<Spoiler
+							maxHeight={75}
+							showLabel="Show more"
+							hideLabel="Hide"
+							mt="1rem"
+						>
+							<Title order={3} size="h2">
+								About Property
+							</Title>
+							<p>{property?.description}</p>
+						</Spoiler>
 					</div>
 					<div style={{ width: "35%" }}>
 						<Title order={2} size="h1">
@@ -247,9 +258,6 @@ const PropertyDetails = () => {
 						</Button>
 					</div>
 				</div>
-				<Spoiler maxHeight={75} showLabel="Show more" hideLabel="Hide" w="45%">
-					<p>{property?.description}</p>
-				</Spoiler>
 			</section>
 			{property?.type === "Room Rental" && (
 				<section
