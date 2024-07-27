@@ -22,6 +22,7 @@ import ListingDetails from "./features/properties/ListingDetails";
 import ManageProperties from "./features/properties/ManageProperties";
 import PropertyDetails from "./features/properties/PropertyDetails";
 import PropertyListing from "./features/properties/PropertyListing";
+import CustomerPayment from "./features/transactions/CustomerPayment";
 import ManageTransactions from "./features/transactions/ManageTransactions";
 import PaymentHistory from "./features/transactions/PaymentHistory";
 import PaymentSuccess from "./features/transactions/PaymentSuccess";
@@ -73,7 +74,11 @@ function App() {
 								</Route>
 								<Route path="contract" element={<ContractHistory />} />
 								<Route path="complaint" element={<ComplaintHistory />} />
-								<Route path="payment" element={<PaymentHistory />} />
+								<Route
+									path="payment/:transactionId"
+									element={<CustomerPayment />}
+								/>
+								<Route path="payment-history" element={<PaymentHistory />} />
 								<Route
 									path="payment-success/:paymentIntentId"
 									element={<PaymentSuccess />}

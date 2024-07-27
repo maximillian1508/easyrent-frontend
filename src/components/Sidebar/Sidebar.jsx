@@ -110,13 +110,6 @@ const Sidebar = () => {
 				</Title>
 			</div>
 			<div className="inner-dash-topbar">
-				<ActionIcon variant="outline" color="gray">
-					<img
-						src="/images/notifications.svg"
-						alt="notifications"
-						width="70%"
-					/>
-				</ActionIcon>
 				<Divider orientation="vertical" size="sm" />
 				<Menu shadow="md" width={200}>
 					<Menu.Target>
@@ -152,28 +145,6 @@ const Sidebar = () => {
 							}
 						>
 							Profile
-						</Menu.Item>
-						<Menu.Item
-							leftSection={
-								<ThemeIcon variant="transparent">
-									<img
-										src="/images/notifications.svg"
-										alt="notifications"
-										width="70%"
-									/>
-								</ThemeIcon>
-							}
-						>
-							Notifications
-						</Menu.Item>
-						<Menu.Item
-							leftSection={
-								<ThemeIcon variant="transparent">
-									<img src="/images/setting.svg" alt="setting" width="70%" />
-								</ThemeIcon>
-							}
-						>
-							Setting
 						</Menu.Item>
 						{isCustomer && (
 							<Menu.Item

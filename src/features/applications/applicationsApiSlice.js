@@ -63,6 +63,12 @@ export const applicationsApiSlice = apiSlice.injectEndpoints({
 		getUserRentalStatus: builder.query({
 			query: (userId) => `/applications/user-rental-status/${userId}`,
 		}),
+		getActiveApplication: builder.query({
+			query: ({ propertyId, userId, roomId }) => {
+				const baseUrl = `/applications/active-application?propertyId=${propertyId}&userId=${userId}`;
+				return roomId ? `${baseUrl}&roomId=${roomId}` : baseUrl;
+			},
+		}),
 	}),
 });
 
@@ -72,6 +78,7 @@ export const {
 	useUpdateApplicationMutation,
 	useDeleteApplicationMutation,
 	useGetUserRentalStatusQuery,
+	useGetActiveApplicationQuery,
 } = applicationsApiSlice;
 
 // returns query result object

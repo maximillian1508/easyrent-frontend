@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from "react";
 
 const usePersist = () => {
-	const [persist, setPersist] = useState(
-		JSON.parse(localStorage.getItem("persist")) || false,
-	);
+	const [persist, setPersist] = useState(true);
 
 	useEffect(() => {
-		localStorage.setItem("persist", JSON.stringify(persist));
-	}, [persist]);
+		localStorage.setItem("persist", JSON.stringify(true));
+	}, []);
 
-	return [persist, setPersist];
+	return [true, () => {}];
 };
 
 export default usePersist;

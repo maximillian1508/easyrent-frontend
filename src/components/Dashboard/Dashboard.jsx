@@ -1,5 +1,7 @@
 import React from "react";
 import useAuth from "../../hooks/useAuth";
+import AdminDashboard from "./AdminDashboard";
+import CustomerDashboard from "./CustomerDashboard";
 
 const Dashboard = () => {
 	const { isCustomer, isAdmin } = useAuth();
@@ -7,9 +9,9 @@ const Dashboard = () => {
 	let content;
 
 	if (isCustomer) {
-		content = <h1>Customer Dashboard</h1>;
+		content = <CustomerDashboard />;
 	} else if (isAdmin) {
-		content = <h1>Admin Dashboard</h1>;
+		content = <AdminDashboard />;
 	}
 
 	return content;
