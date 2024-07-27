@@ -156,7 +156,7 @@ const Home = () => {
 				style={{ backgroundImage: "url(/images/home-bg2.jpg)" }}
 			>
 				<h1 className="home-title">A More Convenient Home Rental With Us</h1>
-				<div className="home-search">
+				<div className="home-search" style={{ display: "none" }}>
 					<div
 						style={{ display: "flex", flexDirection: "column", width: "80%" }}
 					>
