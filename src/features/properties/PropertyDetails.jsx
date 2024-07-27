@@ -138,7 +138,7 @@ const PropertyDetails = () => {
 						margin: "2rem 0 2.5rem 0",
 					}}
 				>
-					<div style={{ width: "35%", height: "250", display: "flex" }}>
+					<div style={{ width: "35%", height: "250" }}>
 						<Carousel
 							controlSize={30}
 							loop
@@ -205,9 +205,6 @@ const PropertyDetails = () => {
 								<Text mb="0.5rem">Deposit: RM{property?.depositAmount}</Text>
 							</>
 						)}
-						<Spoiler maxHeight={130} showLabel="Show more" hideLabel="Hide">
-							<p>{property?.description}</p>
-						</Spoiler>
 					</div>
 					<div
 						style={{
@@ -250,6 +247,9 @@ const PropertyDetails = () => {
 						</Button>
 					</div>
 				</div>
+				<Spoiler maxHeight={75} showLabel="Show more" hideLabel="Hide" w="45%">
+					<p>{property?.description}</p>
+				</Spoiler>
 			</section>
 			{property?.type === "Room Rental" && (
 				<section
