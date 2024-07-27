@@ -262,6 +262,17 @@ const ListingDetails = () => {
 								</Carousel.Slide>
 							)}
 						</Carousel>
+						<Spoiler
+							maxHeight={100}
+							showLabel="Show more"
+							hideLabel="Hide"
+							mt="1rem"
+						>
+							<Title order={3} size="h2">
+								About Property
+							</Title>
+							<p>{property?.description}</p>
+						</Spoiler>
 					</div>
 					<div style={{ width: "35%" }}>
 						<Title order={2} size="h1">
@@ -286,6 +297,22 @@ const ListingDetails = () => {
 									{property?.rooms?.[selectedRoom]?.depositAmount || "N/A"}
 								</Text>
 							</>
+						)}
+						{property?.type === "Room Rental" && (
+							<Spoiler
+								maxHeight={100}
+								showLabel="Show more"
+								hideLabel="Hide"
+								mt="0.75rem"
+							>
+								<Title order={3} size="h2" mt="1rem">
+									About Room
+								</Title>
+								<p>
+									{property?.rooms?.[selectedRoom]?.description ||
+										"No description available"}
+								</p>
+							</Spoiler>
 						)}
 					</div>
 					<form
@@ -376,37 +403,6 @@ const ListingDetails = () => {
 							{property?.isFullyOccupied ? "Fully Occupied" : "Apply"}
 						</Button>
 					</form>
-				</div>
-				<div
-					style={{
-						display: "flex",
-						flexDirection: "row",
-						justifyContent: "space-between",
-					}}
-				>
-					<Spoiler
-						maxHeight={100}
-						showLabel="Show more"
-						hideLabel="Hide"
-						w="45%"
-					>
-						<Title>About Property</Title>
-						<p>Property Desc: {property?.description}</p>
-					</Spoiler>
-					{property?.type === "Room Rental" && (
-						<Spoiler
-							maxHeight={100}
-							showLabel="Show more"
-							hideLabel="Hide"
-							w="45%"
-						>
-							<p>
-								Room Desc:{" "}
-								{property?.rooms?.[selectedRoom]?.description ||
-									"No description available"}
-							</p>
-						</Spoiler>
-					)}
 				</div>
 			</section>
 		</main>
