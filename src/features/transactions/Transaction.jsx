@@ -48,11 +48,19 @@ const Transaction = ({ transactionId, rowNumber }) => {
 								}).format(new Date(transaction.paymentDate))
 							: "-"}
 					</Table.Td>
-					{userType === "customer" && transaction.type !== "Deposit" && (
-						<Table.Td>
-							<Button variant="er-blue">Pay</Button>
-						</Table.Td>
-					)}
+					{userType === "customer" &&
+						transaction.type !== "Deposit" &&
+						transaction.status === "Pending" && (
+							<Table.Td>
+								<Button
+									variant="er-blue"
+									component="a"
+									href={`/payment/${transaction.id}`}
+								>
+									Pay
+								</Button>
+							</Table.Td>
+						)}
 				</Table.Tr>
 			</>
 		);

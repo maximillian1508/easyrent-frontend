@@ -37,7 +37,7 @@ const Login = () => {
 		});
 	};
 
-	const handleToggle = () => setPersist((prev) => !prev);
+	const handleToggle = () => setPersist(true);
 
 	const handleChange = (e) => {
 		const { value, name } = e.target;
@@ -115,7 +115,6 @@ const Login = () => {
 					onChange={handleToggle}
 					size="md"
 					mt="1rem"
-					checked={persist}
 				/>
 
 				<p style={{ textAlign: "center", marginTop: "1rem" }}>

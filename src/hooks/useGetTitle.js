@@ -33,11 +33,15 @@ const useGetTitle = () => {
 			title: "Complaint History",
 		},
 		{
-			path: "/payment",
+			path: "/payment/:id",
+			title: "Payment",
+		},
+		{
+			path: "/payment-history",
 			title: "Payment History",
 		},
 		{
-			path: "/payment/:id",
+			path: "/payment-success/:id",
 			title: "Payment Status",
 		},
 	];

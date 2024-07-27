@@ -16,6 +16,7 @@ import useAuth from "../../hooks/useAuth";
 import useTitle from "../../hooks/useTitle";
 import {
 	useAddNewApplicationMutation,
+	useGetActiveApplicationQuery,
 	useGetUserRentalStatusQuery,
 } from "../applications/applicationsApiSlice";
 import { useGetPropertiesQuery } from "./propertiesApiSlice";
@@ -29,18 +30,45 @@ const ListingDetails = () => {
 			property: data?.entities[propertyId],
 		}),
 	});
-	const { data: userStatus, isLoading: isStatusLoading } =
-		useGetUserRentalStatusQuery(userId);
+	const {
+		data: userStatus,
+		isLoading: isStatusLoading,
+		refetch: refetchUserStatus,
+	} = useGetUserRentalStatusQuery(userId);
 
 	const [formData, setFormData] = useState({
 		user: userId,
 		property: propertyId,
-		room: "",
+		room: property?.rooms.find((room) => !room.isOccupied)?._id || "",
 		startDate: "",
 		stayLength: "3",
 	});
+
+	const {
+		data: activeApplication,
+		isLoading: isActiveLoading,
+		refetch: refetchActiveApplication,
+	} = useGetActiveApplicationQuery(
+		{
+			propertyId,
+			userId,
+			roomId: property?.type === "Room Rental" ? formData.room : undefined,
+		},
+		{
+			skip:
+				!propertyId ||
+				!userId ||
+				(property?.type === "Room Rental" && !formData.room),
+		},
+	);
+
 	const [errors, setErrors] = useState({});
-	const [selectedRoom, setSelectedRoom] = useState(0);
+	const [selectedRoom, setSelectedRoom] = useState(() => {
+		const firstUnoccupiedIndex = property?.rooms.findIndex(
+			(room) => !room.isOccupied,
+		);
+		return firstUnoccupiedIndex !== -1 ? firstUnoccupiedIndex : 0;
+	});
 
 	const [addNewApplication, { isLoading, isSuccess, isError, error }] =
 		useAddNewApplicationMutation();
@@ -53,6 +81,16 @@ const ListingDetails = () => {
 			notifications.show({
 				title: "Error",
 				message: "Please login to apply for this property.",
+				color: "red",
+			});
+			return;
+		}
+
+		if (!activeApplication.canApply) {
+			notifications.show({
+				title: "Error",
+				message:
+					"You already have an application for this property. Please wait for the application to be responded.",
 				color: "red",
 			});
 			return;
@@ -72,6 +110,8 @@ const ListingDetails = () => {
 		console.log(userId);
 		console.log(formData);
 		await addNewApplication(formData);
+		refetchUserStatus();
+		refetchActiveApplication();
 	};
 
 	useEffect(() => {
@@ -79,11 +119,22 @@ const ListingDetails = () => {
 	}, [userId]);
 
 	useEffect(() => {
-		property?.type === "Room Rental" &&
-			setFormData((prevData) => ({
-				...prevData,
-				room: property?.rooms[0]?._id,
-			}));
+		if (property?.type === "Room Rental") {
+			const firstUnoccupiedRoom = property.rooms.find(
+				(room) => !room.isOccupied,
+			);
+			if (firstUnoccupiedRoom) {
+				setFormData((prevData) => ({
+					...prevData,
+					room: firstUnoccupiedRoom._id,
+				}));
+				setSelectedRoom(
+					property.rooms.findIndex(
+						(room) => room._id === firstUnoccupiedRoom._id,
+					),
+				);
+			}
+		}
 	}, [property]);
 
 	useEffect(() => {
@@ -228,10 +279,11 @@ const ListingDetails = () => {
 						) : (
 							<>
 								<Title order={3} size="h2">
-									RM{property?.rooms[selectedRoom].price}
+									RM{property?.rooms?.[selectedRoom]?.price || "N/A"}
 								</Title>
 								<Text mb="0.5rem">
-									Deposit: RM{property?.rooms[selectedRoom].depositAmount}
+									Deposit: RM
+									{property?.rooms?.[selectedRoom]?.depositAmount || "N/A"}
 								</Text>
 							</>
 						)}
@@ -241,7 +293,9 @@ const ListingDetails = () => {
 						{property?.type === "Room Rental" && (
 							<Spoiler maxHeight={130} showLabel="Show more" hideLabel="Hide">
 								<p>
-									Room Desc: {property?.rooms[selectedRoom].description || "-"}
+									Room Desc:{" "}
+									{property?.rooms?.[selectedRoom]?.description ||
+										"No description available"}
 								</p>
 							</Spoiler>
 						)}
@@ -308,7 +362,10 @@ const ListingDetails = () => {
 									}))}
 								allowDeselect={false}
 								onChange={(value, option) => {
-									setSelectedRoom(option?.index);
+									const selectedIndex = property.rooms.findIndex(
+										(room) => room._id === value,
+									);
+									setSelectedRoom(selectedIndex);
 									setFormData((prev) => ({ ...prev, room: value }));
 								}}
 								defaultValue={
@@ -320,14 +377,15 @@ const ListingDetails = () => {
 						<Button
 							variant="er-blue"
 							type="submit"
-							isLoading={isLoading}
+							loading={isLoading}
 							disabled={
 								formData.startDate === "" ||
 								isStatusLoading ||
+								isActiveLoading ||
 								!property?.isAvailable
 							}
 						>
-							{!property?.isAvailable ? "Fully Occupied" : "Apply"}
+							{property?.isFullyOccupied ? "Fully Occupied" : "Apply"}
 						</Button>
 					</form>
 				</div>

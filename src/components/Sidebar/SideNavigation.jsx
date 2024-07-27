@@ -46,7 +46,7 @@ const custNav = [
 	},
 	{
 		label: "Payment",
-		href: "/payment",
+		href: "/payment-history",
 		leftSection: (
 			<ThemeIcon variant="transparent">
 				<img src="/images/payment.svg" style={{ width: "80%" }} alt="payment" />

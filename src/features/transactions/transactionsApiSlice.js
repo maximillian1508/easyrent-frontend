@@ -77,6 +77,31 @@ export const transactionsApiSlice = apiSlice.injectEndpoints({
 				{ type: "Contract", id: arg.contractId },
 			],
 		}),
+		processPayment: builder.mutation({
+			query: (paymentData) => {
+				console.log(
+					"Initiating processPayment API call with data:",
+					paymentData,
+				);
+				return {
+					url: "/transactions/process-payment",
+					method: "POST",
+					body: paymentData,
+				};
+			},
+			// Add more detailed error logging
+			async onQueryStarted(arg, { queryFulfilled }) {
+				try {
+					await queryFulfilled;
+				} catch (error) {
+					console.error("processPayment query failed:", error);
+				}
+			},
+			extraOptions: { timeout: 60000 },
+			invalidatesTags: (result, error, arg) => [
+				{ type: "Transaction", id: "LIST" },
+			],
+		}),
 	}),
 });
 
@@ -87,6 +112,7 @@ export const {
 	useDeleteTransactionMutation,
 	useCreatePaymentIntentMutation,
 	useProcessDepositMutation,
+	useProcessPaymentMutation,
 } = transactionsApiSlice;
 
 // returns query result object

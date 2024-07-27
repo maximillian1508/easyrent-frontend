@@ -81,7 +81,7 @@ const Property = ({ propertyId }) => {
 							color={!property.isAvailable ? "red" : "green"}
 							styles={{ root: { width: "fit-content" } }}
 						>
-							{!property.isAvailable ? "Full" : "Available"}
+							{property.isFullyOccupied ? "Full" : "Available"}
 						</ThemeIcon>
 					</Group>
 
