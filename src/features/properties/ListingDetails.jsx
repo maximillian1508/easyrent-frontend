@@ -152,7 +152,7 @@ const ListingDetails = () => {
 			if (error?.status === 401) {
 				notifications.show({
 					title: "Error",
-					message: "Please login to apply for this property.",
+					message: "Please register and login to apply for this property.",
 					color: "red",
 				});
 			} else if (error?.data) {
