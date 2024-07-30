@@ -131,7 +131,7 @@ const AdminDashboard = () => {
 							<Table.Td>{formatDate(payment.createdAt)}</Table.Td>
 							<Table.Td>{`${payment.user.firstname} ${payment.user.lastname}`}</Table.Td>
 							<Table.Td>{payment.property.name}</Table.Td>
-							<Table.Td>${payment.amount}</Table.Td>
+							<Table.Td>RM{payment.amount}</Table.Td>
 							<Table.Td>{payment.type}</Table.Td>
 						</Table.Tr>
 					))}
