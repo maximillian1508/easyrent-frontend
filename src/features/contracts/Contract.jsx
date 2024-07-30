@@ -43,9 +43,9 @@ const Contract = ({ contractId, rowNumber }) => {
 							day: "numeric",
 						}).format(new Date(contract.endDate))}
 					</Table.Td>
-					<Table.Td>{contract.rentAmount || contract.roomPrice}</Table.Td>
+					<Table.Td>RM{contract.rentAmount || contract.roomPrice}</Table.Td>
 					<Table.Td>
-						{contract.depositAmount || contract.roomDepositAmount}
+						RM{contract.depositAmount || contract.roomDepositAmount}
 					</Table.Td>
 					<Table.Td>{contract.isActive ? "active" : "inactive"}</Table.Td>
 					<Table.Td>

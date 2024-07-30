@@ -30,7 +30,7 @@ const Transaction = ({ transactionId, rowNumber }) => {
 						</>
 					)}
 					<Table.Td>{transaction.type}</Table.Td>
-					<Table.Td>{transaction.amount}</Table.Td>
+					<Table.Td>RM{transaction.amount}</Table.Td>
 					<Table.Td>
 						{new Intl.DateTimeFormat("en-GB", {
 							year: "numeric",

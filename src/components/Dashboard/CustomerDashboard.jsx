@@ -65,7 +65,7 @@ const CustomerDashboard = () => {
 				</Group>
 
 				<Text size="sm" c="dimmed">
-					Rent Amount: ${currentContract.rentAmount}
+					Rent Amount: RM{currentContract.rentAmount}
 				</Text>
 			</Card>
 		);
@@ -96,7 +96,7 @@ const CustomerDashboard = () => {
 							<Table.Td>
 								{new Date(contract.endDate).toLocaleDateString()}
 							</Table.Td>
-							<Table.Td>${contract.rentAmount}</Table.Td>
+							<Table.Td>RM{contract.rentAmount}</Table.Td>
 						</Table.Tr>
 					))}
 				</Table.Tbody>
@@ -125,7 +125,7 @@ const CustomerDashboard = () => {
 							<Table.Td>
 								{new Date(transaction.createdAt).toLocaleDateString()}
 							</Table.Td>
-							<Table.Td>${transaction.amount}</Table.Td>
+							<Table.Td>RM{transaction.amount}</Table.Td>
 							<Table.Td>{transaction.type}</Table.Td>
 							<Table.Td>{transaction.status}</Table.Td>
 						</Table.Tr>
