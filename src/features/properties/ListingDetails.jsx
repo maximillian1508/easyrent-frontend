@@ -80,7 +80,7 @@ const ListingDetails = () => {
 		if (!userId) {
 			notifications.show({
 				title: "Error",
-				message: "Please login to apply for this property.",
+				message: "Please register and login to apply for this property.",
 				color: "red",
 			});
 			return;
