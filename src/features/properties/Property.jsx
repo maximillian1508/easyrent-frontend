@@ -78,7 +78,7 @@ const Property = ({ propertyId }) => {
 							{property.name}
 						</Text>
 						<ThemeIcon
-							color={!property.isAvailable ? "red" : "green"}
+							color={!property.isFullyOccupied ? "red" : "green"}
 							styles={{ root: { width: "fit-content" } }}
 						>
 							{property.isFullyOccupied ? "Full" : "Available"}
