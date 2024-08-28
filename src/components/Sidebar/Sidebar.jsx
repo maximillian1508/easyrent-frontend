@@ -48,7 +48,7 @@ const Sidebar = () => {
 	};
 
 	if (isError) {
-		console.log(error);
+		
 		notifications.show({
 			title: "Error",
 			message: error.data?.message,

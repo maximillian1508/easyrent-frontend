@@ -58,7 +58,7 @@ const PaymentContent = ({ amount, transactionId }) => {
 		}
 
 		try {
-			console.log("Confirming payment...");
+			
 
 			const { error: stripeError, paymentIntent } = await stripe.confirmPayment(
 				{
@@ -69,7 +69,7 @@ const PaymentContent = ({ amount, transactionId }) => {
 					redirect: "if_required",
 				},
 			);
-			console.log("Payment confirmed:", paymentIntent);
+			
 
 			if (stripeError) {
 				console.error("Stripe error:", stripeError);
@@ -79,16 +79,16 @@ const PaymentContent = ({ amount, transactionId }) => {
 
 			if (paymentIntent.status === "succeeded") {
 				// Payment succeeded without redirect
-				console.log("Payment succeeded, processing...");
+				
 				await processPayment({
 					paymentIntentId: paymentIntent.id,
 					transactionId,
 				});
-				console.log("Payment processed, navigating...");
+				
 				navigate(`/payment-success/${paymentIntent.id}`);
 			} else {
 				// For cases where additional actions might be required
-				console.log("Additional actions required, confirming payment again...");
+				
 
 				stripe.confirmPayment({
 					elements,
@@ -172,22 +172,22 @@ const CustomerPayment = () => {
 	const [createPaymentIntent] = useCreatePaymentIntentMutation();
 
 	useEffect(() => {
-		console.log("Transaction:", transaction);
-		console.log("Is Loading:", isLoading);
-		console.log("Is Error:", isError);
+		
+		
+		
 	}, [transaction, isLoading, isError]);
 
 	useEffect(() => {
 		const initPaymentIntent = async () => {
 			if (transaction) {
 				try {
-					console.log("Creating payment intent for:", transaction);
+					
 
 					const result = await createPaymentIntent({
 						amount: transaction.amount,
 						transactionId,
 					}).unwrap();
-					console.log("Payment intent result:", result);
+					
 
 					setClientSecret(result.clientSecret);
 					setAmount(transaction.amount);

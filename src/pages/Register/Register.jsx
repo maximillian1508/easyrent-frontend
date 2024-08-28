@@ -48,7 +48,7 @@ const Register = () => {
 
 		try {
 			const response = await axios.post("/api/users", formData);
-			console.log("Registration successful", response.data);
+			
 			navigate("/email-verification", {
 				state: { email: formData.email },
 			}); // Redirect to login page after successful registration

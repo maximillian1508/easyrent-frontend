@@ -12,7 +12,7 @@ const Contract = ({ contractId, rowNumber }) => {
 	});
 
 	if (contract) {
-		console.log(contract);
+		
 		return (
 			<>
 				<Table.Tr>
