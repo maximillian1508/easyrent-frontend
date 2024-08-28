@@ -49,7 +49,7 @@ const useGetTitle = () => {
 	for (const route of routes) {
 		const match = matchPath(route.path, location.pathname);
 		if (match) {
-			console.log(match);
+			
 			return route.title;
 		}
 	}

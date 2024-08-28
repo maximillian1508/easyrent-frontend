@@ -90,7 +90,7 @@ const AddNewUser = ({ closeModal }) => {
 		e.preventDefault();
 		setErrors({});
 
-		console.log(formData);
+		
 		await addNewUser(formData);
 	};
 

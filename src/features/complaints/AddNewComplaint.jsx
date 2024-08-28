@@ -80,7 +80,7 @@ const AddNewComplaint = ({ closeModal, userId }) => {
 		e.preventDefault();
 		setErrors({});
 
-		console.log(formData);
+		
 		await addNewComplaint(formData);
 	};
 	return (

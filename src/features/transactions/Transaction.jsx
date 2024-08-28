@@ -12,7 +12,7 @@ const Transaction = ({ transactionId, rowNumber }) => {
 	});
 
 	if (transaction) {
-		console.log(transaction);
+		
 		return (
 			<>
 				<Table.Tr>

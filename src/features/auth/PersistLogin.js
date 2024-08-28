@@ -33,7 +33,7 @@ const PersistLogin = () => {
 	useEffect(() => {
 		if (effectRan.current === true || process.env.NODE_ENV !== "development") {
 			const verifyRefreshToken = async () => {
-				console.log("verifying refresh token");
+				
 				try {
 					/*
 					if (
@@ -45,7 +45,7 @@ const PersistLogin = () => {
 					}
 						*/
 
-					console.log("getting refresh token");
+					
 					await refresh();
 					setTrueSuccess(true);
 				} catch (err) {
@@ -69,19 +69,19 @@ const PersistLogin = () => {
 
 	if (isPublicRoute()) {
 		//persist: no
-		console.log("public route");
+		
 		content = <Outlet />;
 	} else if (!persist) {
 		//persist: no
-		console.log("no persist");
+		
 		content = <Outlet />;
 	} else if (isLoading) {
 		// persist: yes, token: no
-		console.log("loading");
+		
 		content = <p>Loading...</p>;
 	} else if (isError) {
 		// persist: yes, token: no
-		console.log(error);
+		
 		content = (
 			<p>
 				{error.data?.message} <Link to="/login">Please Login Again</Link>
@@ -89,12 +89,12 @@ const PersistLogin = () => {
 		);
 	} else if (isSuccess && trueSuccess) {
 		//persist: yes, token: yes
-		console.log("success");
+		
 		content = <Outlet />;
 	} else if (token && isUninitialized) {
 		//persist: yes, token: yes
-		console.log("token & uninit");
-		console.log(isUninitialized);
+		
+		
 		content = <Outlet />;
 	}
 

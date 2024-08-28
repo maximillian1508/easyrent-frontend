@@ -63,7 +63,7 @@ const AddNewProperty = () => {
 		e.preventDefault();
 		setErrors({});
 
-		console.log(formData);
+		
 		await addNewProperty(formData);
 	};
 

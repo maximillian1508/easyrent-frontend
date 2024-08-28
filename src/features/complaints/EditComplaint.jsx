@@ -77,7 +77,7 @@ const EditComplaint = ({ id, closeModal }) => {
 		e.preventDefault();
 		setErrors({});
 
-		console.log(formData);
+		
 		await updateComplaint({ ...formData, id: complaint.id });
 	};
 

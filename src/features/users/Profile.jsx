@@ -106,7 +106,7 @@ const Profile = () => {
 		e.preventDefault();
 		setErrors({});
 
-		console.log(formData);
+		
 		await updateUser({ ...formData, id: user._id });
 	};
 

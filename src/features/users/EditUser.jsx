@@ -86,7 +86,7 @@ const EditUser = ({ id, closeDrawer }) => {
 		e.preventDefault();
 		setErrors({});
 
-		console.log(formData);
+		
 		await updateUser({ ...formData, id: user.id });
 	};
 

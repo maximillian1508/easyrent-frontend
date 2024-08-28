@@ -80,7 +80,7 @@ const EditComplaint = ({ id, closeModal, admin }) => {
 		e.preventDefault();
 		setErrors({});
 
-		console.log(formData);
+		
 		await updateComplaint({ ...formData, id: complaint.id });
 	};
 
