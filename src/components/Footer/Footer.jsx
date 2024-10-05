@@ -9,7 +9,7 @@ const Footer = () => {
 			<Container fluid mx="xl" py="xl">
 				<Grid gutter="xl" grow>
 					<Grid.Col span={{ base: 12, sm: 5 }}>
-						<Container w="70%" mx={0} px={0} mb="1rem">
+						<Container w={{ base: "95%", sm: "70%" }} mx={0} px={0} mb="1rem">
 							<Image
 								src="/images/er-horizontal-white.svg"
 								w={150}

@@ -215,13 +215,14 @@ const Header = () => {
 						dropdown: {
 							width: "100vw",
 							left: "0px",
-							position: "absolute"
+							position: "absolute",
 						},
 						itemLabel: {
 							fontSize: "1.25em"
 						}
 					}}
 					offset={0}
+					onPositionChange={toggle}
 				>
 					<Menu.Target>
 						<Button

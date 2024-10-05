@@ -118,8 +118,9 @@
 
 @media screen and (max-width: 767px){
     .home-title {
-        font-size: 2.25em;
-        padding-top: 7rem;
+        font-size: 2.5em;
+        padding-top: 8rem;
+        width: 95%;
     }
 
     .home-sect#services p.service-title-info {
