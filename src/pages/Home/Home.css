@@ -7,7 +7,7 @@
 }
 
 .home-title {
-    font-size: 3.5rem;
+    font-size: 3.5em;
     color: white;
     margin: 0 auto;
     display: block;
@@ -17,7 +17,6 @@
     text-align:center;
     line-height: 0.975;
 }
-
 
 .home-search {
     position: absolute;
@@ -72,9 +71,10 @@
 }
 
 .home-sect#services div.service-card {
-    height: 100%;
+    flex: 1 1 0%;
+    display: flex;
+    flex-direction: column;
     background-color: #102b4a;
-    width: 33%;
     border-radius: 15px;
     padding: 1.5rem;
     border: solid 1px var(--dark-grey);
@@ -95,6 +95,7 @@
 }
 
 .home-sect#services div.service-card p{
+    flex-grow: 1;
     color: var(--light-grey)
 }
 
@@ -105,8 +106,6 @@
     color: white;
 }
 
-
-
 .home-sect#services h2{
     color: var(--superlight-blue)
 }
@@ -115,4 +114,20 @@
     color: var(--medium-grey);
     font-size: 1.25rem;
     margin: 0.5rem 0 1rem 0;
+}
+
+@media screen and (max-width: 767px){
+    .home-title {
+        font-size: 2.25em;
+        padding-top: 7rem;
+    }
+
+    .home-sect#services p.service-title-info {
+        font-size: 2rem;
+        width: 100%;
+    }
+
+    .home-sect#services p.service-title-explanation{
+        width:100%
+    }
 }

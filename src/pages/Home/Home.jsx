@@ -8,6 +8,7 @@ import {
 	Select,
 	Text,
 	Title,
+	Flex
 } from "@mantine/core";
 import React, { useEffect, useState } from "react";
 import "./Home.css";
@@ -246,7 +247,7 @@ const Home = () => {
 						journey to your ideal home.
 					</p>
 				</Group>
-				<Group grow gap="md" mb="lg" w="100%" justify="center">
+				<Flex grow gap="md" mb="lg" w="100%" justify="center" direction={{ base: "column", sm: "row" }}>
 					<div className="service-card">
 						<div className="service-icon">
 							<img src="./images/house-white.svg" alt="house" />
@@ -285,7 +286,7 @@ const Home = () => {
 							information, ensuring transactions are safe and confidential.
 						</p>
 					</div>
-				</Group>
+				</Flex>
 			</section>
 		</main>
 	);
