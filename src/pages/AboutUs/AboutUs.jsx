@@ -102,7 +102,6 @@ const AboutUs = () => {
 				<p
 					className="heading-info"
 					style={{
-						width: "60%",
 						textWrap: "wrap",
 						margin: "0.5rem auto 1.5rem auto",
 					}}
@@ -115,7 +114,7 @@ const AboutUs = () => {
 						<Avatar
 							alt="it's me"
 							styles={{
-								root: { width: "40%", height: "40%" },
+								root: { height: "40%" },
 								placeholder: {
 									backgroundColor: "#fff",
 								},
@@ -139,7 +138,7 @@ const AboutUs = () => {
 							src="./images/profile-picture.jpg"
 							alt="it's me"
 							styles={{
-								root: { width: "40%", height: "40%" },
+								root: { height: "40%" },
 								image: { width: "100%", height: "100%", borderRadius: "50%" },
 							}}
 						/>
@@ -154,7 +153,7 @@ const AboutUs = () => {
 						<Avatar
 							alt="it's me"
 							styles={{
-								root: { width: "40%", height: "40%" },
+								root: { height: "40%" },
 								placeholder: { backgroundColor: "#fff" },
 							}}
 						>

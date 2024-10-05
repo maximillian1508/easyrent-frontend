@@ -37,10 +37,9 @@ const Faq = () => {
 						active={4}
 						bulletSize={24}
 						lineWidth={2}
-						styles={{ root: { width: "50%", margin: "1rem 0" } }}
 					>
 						<Timeline.Item title="Discover and choose a property">
-							<Text c="dimmed" size="sm">
+							<Text c="dimmed" size={{ base: "md", sm: "sm" }}>
 								Explore our extensive catalog of available properties, utilizing
 								our advanced search filters to narrow down options based on your
 								preferences. After careful consideration, select the perfect
@@ -49,7 +48,7 @@ const Faq = () => {
 						</Timeline.Item>
 
 						<Timeline.Item title="Apply for the rental">
-							<Text c="dimmed" size="sm">
+							<Text c="dimmed" size={{ base: "md", sm: "sm" }}>
 								Complete and submit our online application. Provide necessary
 								personal information and employment details. Upload required
 								documents such as identification and references.
@@ -57,7 +56,7 @@ const Faq = () => {
 						</Timeline.Item>
 
 						<Timeline.Item title="Submit the contract & deposit payment">
-							<Text c="dimmed" size="sm">
+							<Text c="dimmed" size={{ base: "md", sm: "sm" }}>
 								If your application is approved, sign the digital contract using
 								the secure e-signature system. Then, transfer the deposit and
 								first month&apos;s rent through the integrated payment platform.
@@ -65,7 +64,7 @@ const Faq = () => {
 						</Timeline.Item>
 
 						<Timeline.Item title="Rental process completed!">
-							<Text c="dimmed" size="sm">
+							<Text c="dimmed" size={{ base: "md", sm: "sm" }}>
 								Your rental process has been completed. The landlord will
 								provide you with a detailed move-in package, including key, and
 								a comprehensive welcome guide
@@ -73,7 +72,7 @@ const Faq = () => {
 						</Timeline.Item>
 
 						<Timeline.Item title="Manage your rental necessities with our services">
-							<Text c="dimmed" size="sm">
+							<Text c="dimmed" size={{ base: "md", sm: "sm" }}>
 								Now that you&apos;re settled in, take advantage of our
 								user-friendly tenant portal. Here, you can easily pay rent
 								online, submit maintenance requests 24/7, and access
@@ -81,7 +80,7 @@ const Faq = () => {
 							</Text>
 						</Timeline.Item>
 					</Timeline>
-					<div style={{ width: "45%" }}>
+					<div style={{ width: "45%" }} className="faq-image">
 						<img
 							src="./images/rent-illustration.svg"
 							alt="rent-illustration"
