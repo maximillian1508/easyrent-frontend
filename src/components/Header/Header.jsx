@@ -260,6 +260,8 @@ const Header = () => {
 							<>
 								<Menu.Label>Application</Menu.Label>
 								<Menu.Item
+									component="a"
+									href="/profile"
 									leftSection={
 										<ThemeIcon variant="transparent">
 											<img src="/images/user.svg" alt="user" width="70%" />
