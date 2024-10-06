@@ -125,9 +125,6 @@ const Sidebar = () => {
 									/>
 								</ThemeIcon>
 							}
-							styles={{
-								root: { width: "175px" },
-							}}
 						>
 							<Text truncate="end">{userName}</Text>
 						</Button>

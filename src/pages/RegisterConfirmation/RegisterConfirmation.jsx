@@ -47,7 +47,7 @@ const RegisterConfirmation = () => {
 				});
 				setError(
 					err.response.data.message ||
-						"Something went wrong. Please try again later.",
+					"Something went wrong. Please try again later.",
 				);
 			} else {
 				notifications.show({
@@ -76,7 +76,7 @@ const RegisterConfirmation = () => {
 						});
 						setError(
 							err.response.data.message ||
-								"Something went wrong. Please try again later.",
+							"Something went wrong. Please try again later.",
 						);
 					} else {
 						notifications.show({
@@ -132,10 +132,10 @@ const RegisterConfirmation = () => {
 				</Button>
 			</div>
 		)(isResendDisabled) && (
-			<Text style={{ marginTop: "0.5rem", textAlign: "center" }}>
-				Please wait {disableCount} to resend the verification email again!
-			</Text>
-		);
+				<Text style={{ marginTop: "0.5rem", textAlign: "center" }}>
+					Please wait {disableCount} to resend the verification email again!
+				</Text>
+			);
 	} else {
 		template = (
 			<div style={{ textAlign: "center" }}>
@@ -158,7 +158,7 @@ const RegisterConfirmation = () => {
 
 	return (
 		<main style={{ height: "100vh", display: "flex", alignItems: "center" }}>
-			<section className="bordered-center-form">
+			<section className="bordered-center-form reg-confirm">
 				<div style={{ width: "175px", margin: "0 auto" }}>
 					<img
 						src="/images/er-horizontal.svg"

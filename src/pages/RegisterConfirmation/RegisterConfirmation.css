@@ -1,0 +1,5 @@
+@media screen and (max-width: 767px){
+    .bordered-center-form.reg-confirm {
+        width: 85%;
+    }
+}

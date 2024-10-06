@@ -81,7 +81,7 @@ const Register = () => {
 	return (
 		<main style={{ textAlign: "center", margin: "2rem 0" }}>
 			<Title order={1}>Register</Title>
-			<p className="heading-info" style={{ fontSize: "1rem" }}>
+			<p className="heading-info register-info" style={{ fontSize: "1rem" }}>
 				Create an account to start your rental journey with us.
 			</p>
 			<form className="bordered-center-form" onSubmit={handleSubmit}>
