@@ -196,7 +196,7 @@ const AboutUs = () => {
 								className="heading-info"
 								style={{ marginTop: "0", fontSize: "1rem" }}
 							>
-								easyrent.corp@gmail.com
+								cs@easyrent.com
 							</p>
 						</div>
 					</Grid.Col>
