@@ -14,6 +14,7 @@ import usePersist from "../../hooks/usePersist";
 import useTitle from "../../hooks/useTitle";
 import { useLoginMutation } from "./authApiSlice";
 import { setCredentials } from "./authSlice";
+import "./Login.css";
 
 const Login = () => {
 	useTitle("Login");
@@ -73,13 +74,12 @@ const Login = () => {
 	return (
 		<main style={{ textAlign: "center", margin: "2rem 0" }}>
 			<Title order={1}>Login</Title>
-			<p className="heading-info" style={{ fontSize: "1rem" }}>
+			<p className="heading-info login-info" style={{ fontSize: "1rem" }}>
 				Login to your account to start your rental journey with us.
 			</p>
 			<form
-				className="bordered-center-form"
+				className="bordered-center-form login"
 				onSubmit={handleSubmit}
-				style={{ width: "40%" }}
 			>
 				<Grid style={{ marginBottom: "1rem" }}>
 					<Grid.Col span={12}>

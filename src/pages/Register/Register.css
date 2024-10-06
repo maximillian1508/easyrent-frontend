@@ -6,3 +6,16 @@
     border-radius: 15px; 
     text-align: left;
 }
+
+@media screen and (max-width: 767px){
+    .bordered-center-form {
+        width: 85%
+    }
+
+    main > .register-info {
+        width: 80%;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto
+    }
+}

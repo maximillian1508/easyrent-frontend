@@ -1,0 +1,16 @@
+.bordered-center-form.login {
+    width: 40%;
+}
+
+@media screen and (max-width: 767px){
+    .bordered-center-form.login {
+        width: 85%
+    }
+
+    main > .login-info {
+        width: 80%;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto
+    }
+}

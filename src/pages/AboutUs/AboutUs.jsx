@@ -176,12 +176,15 @@ const AboutUs = () => {
 				<Title order={2} size="h1">
 					Get in Touch
 				</Title>
-				<p className="heading-info">
+				<p className="heading-info" style={{
+					textWrap: "wrap",
+					textAlign: "center"
+				}}>
 					Have a question or a concern? Reach out to us and we&apos;ll be happy
 					to assist you.
 				</p>
-				<Grid styles={{ root: { margin: "1rem auto", width: "80%" } }}>
-					<Grid.Col span={4}>
+				<Grid styles={{ root: { margin: "1rem auto", width: "85%" } }}>
+					<Grid.Col span={{ base: "6", sm: "4" }}>
 						<div className="contact-card">
 							<div className="contact-icon">
 								<img src="./images/email.svg" alt="email" />
@@ -193,11 +196,11 @@ const AboutUs = () => {
 								className="heading-info"
 								style={{ marginTop: "0", fontSize: "1rem" }}
 							>
-								easyrent.corporate@gmail.com
+								easyrent.corp@gmail.com
 							</p>
 						</div>
 					</Grid.Col>
-					<Grid.Col span={4}>
+					<Grid.Col span={{ base: "6", sm: "4" }}>
 						<div className="contact-card">
 							<div className="contact-icon">
 								<img src="./images/phone.svg" alt="phone" />
@@ -213,7 +216,7 @@ const AboutUs = () => {
 							</p>
 						</div>
 					</Grid.Col>
-					<Grid.Col span={4}>
+					<Grid.Col span={{ base: "6", sm: "4" }}>
 						<div className="contact-card">
 							<div className="contact-icon">
 								<img src="./images/instagram.svg" alt="instagram" />
@@ -229,7 +232,7 @@ const AboutUs = () => {
 							</p>
 						</div>
 					</Grid.Col>
-					<Grid.Col span={4}>
+					<Grid.Col span={{ base: "6", sm: "4" }}>
 						<div className="contact-card">
 							<div className="contact-icon">
 								<img src="./images/linkedin.svg" alt="linkedin" />
@@ -245,7 +248,7 @@ const AboutUs = () => {
 							</p>
 						</div>
 					</Grid.Col>
-					<Grid.Col span={4}>
+					<Grid.Col span={{ base: "6", sm: "4" }}>
 						<div className="contact-card">
 							<div className="contact-icon">
 								<img src="./images/facebook.svg" alt="facebook" />
@@ -261,7 +264,7 @@ const AboutUs = () => {
 							</p>
 						</div>
 					</Grid.Col>
-					<Grid.Col span={4}>
+					<Grid.Col span={{ base: "6", sm: "4" }}>
 						<div className="contact-card">
 							<div className="contact-icon">
 								<img src="./images/pin-address.svg" alt="address" />
@@ -271,7 +274,7 @@ const AboutUs = () => {
 							</Title>
 							<p
 								className="heading-info"
-								style={{ marginTop: "0", fontSize: "1rem" }}
+								style={{ marginTop: "0", fontSize: "1rem", textAlign: "center" }}
 							>
 								Parkhill Residence, Bukit Jalil
 							</p>
