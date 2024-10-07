@@ -222,7 +222,8 @@ const Header = () => {
 						}
 					}}
 					offset={0}
-					onPositionChange={toggle}
+					opened={opened}
+					onChange={toggle}
 				>
 					<Menu.Target>
 						<Button
