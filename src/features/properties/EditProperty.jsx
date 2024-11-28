@@ -79,7 +79,7 @@ const EditProperty = () => {
 		e.preventDefault();
 		setErrors({});
 
-		console.log(formData);
+		
 		await updateProperty(formData);
 	};
 

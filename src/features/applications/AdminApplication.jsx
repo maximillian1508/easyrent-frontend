@@ -63,7 +63,7 @@ const AdminApplication = ({ applicationId, rowNumber }) => {
 	}
 
 	if (application) {
-		console.log(application);
+		
 		return (
 			<>
 				<Table.Tr>

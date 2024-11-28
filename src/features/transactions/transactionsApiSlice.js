@@ -79,10 +79,7 @@ export const transactionsApiSlice = apiSlice.injectEndpoints({
 		}),
 		processPayment: builder.mutation({
 			query: (paymentData) => {
-				console.log(
-					"Initiating processPayment API call with data:",
-					paymentData,
-				);
+				
 				return {
 					url: "/transactions/process-payment",
 					method: "POST",

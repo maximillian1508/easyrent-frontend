@@ -74,9 +74,9 @@ const PropertyDetails = () => {
 		}
 	});
 
-	console.log(transactionsData);
-	console.log(propertyTransactions);
-	console.log(property);
+	
+	
+	
 
 	return (
 		<main className="main-container">

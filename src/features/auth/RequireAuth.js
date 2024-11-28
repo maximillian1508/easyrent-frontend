@@ -7,7 +7,7 @@ const RequireAuth = ({ allowedTypes }) => {
 	const { userType } = useAuth();
 
 	useEffect(() => {
-		console.log(`${allowedTypes}  + ${userType}`);
+		
 	});
 
 	const content = allowedTypes.includes(userType) ? (

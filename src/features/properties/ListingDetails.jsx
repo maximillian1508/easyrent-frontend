@@ -96,7 +96,7 @@ const ListingDetails = () => {
 			return;
 		}
 
-		console.log(userStatus.canApply);
+		
 
 		if (!userStatus?.canApply) {
 			notifications.show({
@@ -107,8 +107,8 @@ const ListingDetails = () => {
 			});
 			return;
 		}
-		console.log(userId);
-		console.log(formData);
+		
+		
 		await addNewApplication(formData);
 		refetchUserStatus();
 		refetchActiveApplication();
@@ -173,7 +173,7 @@ const ListingDetails = () => {
 					});
 				}
 			} else {
-				console.log("nodata");
+				
 				notifications.show({
 					title: "Error",
 					message: "An unexpected error occurred. Please try again.",
