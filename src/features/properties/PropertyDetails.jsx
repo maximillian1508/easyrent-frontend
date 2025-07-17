@@ -44,7 +44,8 @@ const PropertyDetails = () => {
 	const pendingApplicationCount =
 		applications?.ids.filter(
 			(id) =>
-				applications.entities[id].property._id === propertyId &&
+				applications.entities[id] &&
+				applications.entities[id].property?._id === propertyId &&
 				applications.entities[id].status === "Waiting for Response",
 		).length || 0;
 
