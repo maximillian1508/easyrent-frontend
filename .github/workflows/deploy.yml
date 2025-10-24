@@ -31,6 +31,8 @@ jobs:
           tags: |
             ventureee/easyrent-frontend:latest
             ventureee/easyrent-frontend:${{ github.sha }}
+          build-args: |
+            REACT_APP_API_URL=https://easyrent.maximillianleonard.dev/api
           cache-from: type=registry,ref=ventureee/easyrent-frontend:buildcache
           cache-to: type=registry,ref=ventureee/easyrent-frontend:buildcache,mode=max
 
