@@ -1,70 +1,202 @@
-# Getting Started with Create React App
+# EasyRent Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern React-based frontend application for managing rental properties, built with Mantine UI components and Redux state management.
+
+## Overview
+
+EasyRent Frontend is a comprehensive property rental management platform that enables landlords and tenants to manage properties, applications, contracts, payments, and maintenance requests efficiently.
+
+## Tech Stack
+
+- **Framework**: React 18.2
+- **UI Library**: Mantine 7.11
+- **State Management**: Redux Toolkit
+- **Routing**: React Router v6
+- **Styling**: Mantine Core + Custom CSS
+- **Payment Processing**: Stripe
+- **HTTP Client**: Axios
+- **Date Handling**: Day.js
+- **Authentication**: JWT with jwt-decode
+
+## Features
+
+- **Authentication & Authorization**
+  - User registration and login
+  - Email verification
+  - JWT-based session management
+
+- **Property Management**
+  - Browse available properties
+  - View property details
+  - Search and filter properties
+
+- **Application System**
+  - Submit rental applications
+  - Track application status
+
+- **Contract Management**
+  - View and manage rental contracts
+  - Digital contract signing
+
+- **Payment Processing**
+  - Secure payment via Stripe
+  - Transaction history
+  - Payment tracking
+
+- **Complaint/Maintenance**
+  - Submit maintenance requests
+  - Track complaint status
+
+- **User Dashboard**
+  - Personalized user experience
+  - Role-based views (Landlord/Tenant)
+
+## Project Structure
+
+```
+src/
+├── app/               # Redux store configuration
+├── components/        # Reusable React components
+├── config/            # App configuration
+├── features/          # Feature-based modules
+│   ├── applications/  # Rental application management
+│   ├── auth/          # Authentication
+│   ├── complaints/    # Maintenance requests
+│   ├── contracts/     # Contract management
+│   ├── properties/    # Property listings
+│   ├── transactions/  # Payment transactions
+│   └── users/         # User management
+├── hooks/             # Custom React hooks
+├── pages/             # Page components
+│   ├── AboutUs/
+│   ├── EmailVerification/
+│   ├── Faq/
+│   ├── Home/
+│   ├── Register/
+│   └── RegisterConfirmation/
+├── App.jsx            # Main app component
+└── index.jsx          # Application entry point
+```
+
+## Prerequisites
+
+- Node.js (v14 or higher)
+- npm or yarn
+- Backend API running (see easyrent-backend)
+
+## Installation
+
+1. Clone the repository and navigate to the frontend directory:
+```bash
+cd easyrent-frontend
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Create a `.env` file in the root directory with the following variables:
+```env
+REACT_APP_API_URL=http://localhost:5000/api
+REACT_APP_STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
+```
 
 ## Available Scripts
 
-In the project directory, you can run:
-
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser..
+Runs the app in development mode on port 3004.
+Open [http://localhost:3004](http://localhost:3004) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The page will reload when you make changes.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner in interactive watch mode.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Builds the app for production to the `build` folder.
+The build is optimized and minified for best performance.
 
 ### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**Warning: This is a one-way operation!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Ejects from Create React App configuration for full control over build tools.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Development
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Code Formatting
 
-## Learn More
+This project uses Biome for code formatting:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npx biome format --write .
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Key Dependencies
 
-### Code Splitting
+- **@mantine/core**: UI component library
+- **@mantine/hooks**: React hooks for common use cases
+- **@mantine/notifications**: Toast notifications
+- **@mantine/modals**: Modal management
+- **@mantine/dates**: Date picker components
+- **@reduxjs/toolkit**: State management
+- **react-router-dom**: Client-side routing
+- **@stripe/react-stripe-js**: Stripe payment integration
+- **axios**: HTTP client for API calls
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## API Integration
 
-### Analyzing the Bundle Size
+The frontend communicates with the backend API through Axios. API endpoints are configured in the feature slices using Redux Toolkit's `createAsyncThunk`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Base API URL should be set via environment variable `REACT_APP_API_URL`.
 
-### Making a Progressive Web App
+## Authentication Flow
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+1. User registers/logs in
+2. Backend returns JWT token
+3. Token is stored in Redux state and localStorage
+4. Token is included in subsequent API requests via Axios interceptors
+5. Protected routes check for valid token
 
-### Advanced Configuration
+## Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Production Build
 
-### Deployment
+```bash
+npm run build
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+The build folder will contain optimized static files ready for deployment.
 
-### `npm run build` fails to minify
+### Docker Support
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Build the production image:
+```bash
+docker build -f Dockerfile.prod -t easyrent-frontend:latest .
+```
+
+## Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+
+## Contributing
+
+1. Create a feature branch
+2. Make your changes
+3. Test thoroughly
+4. Submit a pull request
+
+## License
+
+ISC
+
+## Related Projects
+
+- [EasyRent Backend](../easyrent-backend/README.md) - Backend API server
