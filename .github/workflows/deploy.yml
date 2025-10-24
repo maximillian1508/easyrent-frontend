@@ -2,15 +2,12 @@ name: Build and Deploy Frontend
 
 on:
   push:
-    branches: [master, main]
-    paths:
-      - 'easyrent-frontend/**'
-      - '.github/workflows/deploy-frontend.yml'
+    branches: [master]
   workflow_dispatch: # Allow manual trigger
 
 jobs:
   build-and-push:
-    runs-on: ubuntu-latest # AMD64 - fast builds!
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
@@ -28,8 +25,8 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
-          context: ./easyrent-frontend
-          file: ./easyrent-frontend/Dockerfile.prod
+          context: .
+          file: ./Dockerfile.prod
           push: true
           tags: |
             ventureee/easyrent-frontend:latest
